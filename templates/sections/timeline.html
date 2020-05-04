@@ -18,27 +18,30 @@
                         <div class="row">
                             <h2 class="text-capitalize border-bottom border-dark">employment history</h2>
                         </div>
-                        <div class="row">
-                            <div class="col-12">
-                                {% for item in employment %}
+                        <div class="row justify-content-center">
+                            {% for items in employment %}
+                            <div class="col-6 mt-2">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <a href="#{{ item['id'] }}" class="text-capitalize text-reset">{{ item['info']['job-title'] }}</a>
-                                    </li>
+                                    {% for item in items['section'] %}
+                                    <a href="#{{ item['id'] }}" class="text-capitalize text-reset text-decoration-none border-bottom border-black">
+                                        <li class="list-group-item list-group-item-action">
+                                            {{ item['info']['job-title'] }} <i class="fas fa-angle-right text-secondary" style="float: right;"></i>
+                                        </li>
+                                    </a>
+                                    {% endfor %}
                                 </ul>
-                                {% endfor %}
                             </div>
+                            {% endfor %}
                         </div>
                     </section>
                 </li>
-                {% endif %}
-                {% if education|length > 0 %}
+                {% endif %} {% if education|length > 0 %}
                 <li>
                     <section id="education">
                         <div class="row">
                             <h2 class="text-capitalize border-bottom border-dark">education</h2>
                         </div>
-                        <div class="row mt-4 d-flex justify-content-center">
+                        <div class="row mt-2 d-flex justify-content-center">
                             {% for item in education %}
                             <div class="col-sm-6 mb-2">
                                 <div class="card">
@@ -64,8 +67,7 @@
                                 <nav class="mt-2">
                                     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
                                         {% for item in course %}
-                                        <a class="nav-item nav-link {% if item['id'] == '1' %} active {% endif %} text-reset" id="nav-{{ item['section-title'] }}-tab" data-toggle="tab" href="#nav-{{ item['section-title'] }}" role="tab" aria-controls="nav-{{ item['section-title'] }}" aria-selected="true">{{ item['section-title'] }}</a>
-                                        {% endfor %}
+                                        <a class="nav-item nav-link {% if item['id'] == '1' %} active {% endif %} text-reset" id="nav-{{ item['section-title'] }}-tab" data-toggle="tab" href="#nav-{{ item['section-title'] }}" role="tab" aria-controls="nav-{{ item['section-title'] }}" aria-selected="true">{{ item['section-title'] }}</a>                                        {% endfor %}
                                     </div>
                                 </nav>
                                 <div class="tab-content" id="nav-tabContent">
