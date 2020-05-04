@@ -12,53 +12,26 @@
                         </div>
                     </section>
                 </li>
+                {% if employment|length > 0 %}
                 <li>
                     <section id="employment-history">
                         <div class="row">
                             <h2 class="text-capitalize border-bottom border-dark">employment history</h2>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12">
+                                {% for item in employment %}
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #1</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #2</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #3</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #4</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #5</a>
+                                        <a href="#{{ item['id'] }}" class="text-capitalize text-reset">{{ item['info']['job-title'] }}</a>
                                     </li>
                                 </ul>
-                            </div>
-                            <div class="col-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #6</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #7</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #8</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #9</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <a href="#" class="text-capitalize text-reset">job title #10</a>
-                                    </li>
-                                </ul>
+                                {% endfor %}
                             </div>
                         </div>
                     </section>
                 </li>
+                {% endif %}
                 <li>
                     <section id="education">
                         <div class="row">
