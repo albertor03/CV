@@ -32,39 +32,27 @@
                     </section>
                 </li>
                 {% endif %}
+                {% if education|length > 0 %}
                 <li>
                     <section id="education">
                         <div class="row">
                             <h2 class="text-capitalize border-bottom border-dark">education</h2>
                         </div>
                         <div class="row mt-4 d-flex justify-content-center">
-                            <div class="col-sm-4">
+                            {% for item in education %}
+                            <div class="col-sm-6 mb-2">
                                 <div class="card">
                                     <div class="card-body">
-                                        <p class="h5 card-title text-capitalize font-weight-bold">degree title</p>
-                                        <span class="text-capitalize text-muted">collage, city</span> <span class="text-capitalize text-secondary">(star & end date)</span>
+                                        <p class="h5 card-title text-capitalize font-weight-bold">{{ item['info']['degree-title'] }}</p>
+                                        <span class="text-capitalize text-muted">{{ item['info']['collage'] }}, {{ item['info']['city'] }}</span> <span class="text-capitalize text-secondary">({{ item['info']['start-date'] }} & {{ item['info']['end-date'] }})</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <p class="h5 card-title text-capitalize font-weight-bold">degree title</p>
-                                        <span class="text-capitalize text-muted">collage, city</span> <span class="text-capitalize text-secondary">(star & end date)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <p class="h5 card-title text-capitalize font-weight-bold">degree title</p>
-                                        <span class="text-capitalize text-muted">collage, city</span> <span class="text-capitalize text-secondary">(star & end date)</span>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </section>
                 </li>
+                {% endif %}
                 <li>
                     <section id="courses">
                         <div class="row">

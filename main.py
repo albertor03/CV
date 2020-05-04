@@ -11,7 +11,8 @@ def index():
     info = d.get_data('data/info.json')
     summary = d.get_data('data/sections/summary.json')
     employment = d.get_data('data/sections/employment.json')
-    return render_template("index.html", info=info, summary=summary, employment=employment)
+    education = d.get_data('data/sections/education.json')
+    return render_template("index.html", info=info, summary=summary, employment=employment, education=education)
 
 
 app.run(debug=True)
