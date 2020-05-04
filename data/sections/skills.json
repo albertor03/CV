@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "info": {
+      "skill-title": "skill #1",
+      "level": "25"
+    }
+  },
+  {
+    "id": "2",
+    "info": {
+      "skill-title": "skill #2",
+      "level": "50"
+    }
+  },
+  {
+    "id": "3",
+    "info": {
+      "skill-title": "skill #3",
+      "level": "75"
+    }
+  },
+  {
+    "id": "4",
+    "info": {
+      "skill-title": "skill #4",
+      "level": "100"
+    }
+  },
+  {
+    "id": "5",
+    "info": {
+      "skill-title": "skill #5",
+      "level": "100"
+    }
+  }
+]

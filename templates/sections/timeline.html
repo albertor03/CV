@@ -238,55 +238,29 @@
                         </div>
                     </section>
                 </li>
+                {% if skill|length > 0 %}
                 <li>
                     <section id="skills">
                         <div class="row">
                             <h2 class="text-capitalize border-bottom border-dark">skills</h2>
                         </div>
-                        <div class="row mt-2">
-                            <div class="col-sm-3">
+                        <div class="row mt-2 d-flex justify-content-center">
+                            {% for item in skill %}
+                            <div class="col-sm-4">
                                 <div class="border-bottom border-dark">
                                     <div class="card-body">
-                                        <h5 class="card-title text-capitalize">skill title</h5>
+                                        <h5 class="card-title text-capitalize">{{ item['info']['skill-title'] }}</h5>
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                            <div class="progress-bar" role="progressbar" style="width: {{ item['info']['level'] }}%" aria-valuenow="{{ item['info']['level'] }}" aria-valuemin="0" aria-valuemax="100">{{ item['info']['level'] }}%</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
-                                <div class="border-bottom border-dark">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-capitalize">skill title</h5>
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="border-bottom border-dark">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-capitalize">skill title</h5>
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="border-bottom border-dark">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-capitalize">skill title</h5>
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </section>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>
