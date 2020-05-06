@@ -23,7 +23,7 @@
                             <div class="col-6 mt-2">
                                 <ul class="list-group list-group-flush">
                                     {% for item in items['section'] %}
-                                    <a href="#{{ item['id'] }}" class="text-capitalize text-reset text-decoration-none border-bottom border-black">
+                                    <a href="{{ url_for('jobs') }}#{{ item['id'] }}" class="text-capitalize text-reset text-decoration-none border-bottom border-black">
                                         <li class="list-group-item list-group-item-action">
                                             {{ item['info']['job-title'] }} <i class="fas fa-angle-right text-secondary" style="float: right;"></i>
                                         </li>
