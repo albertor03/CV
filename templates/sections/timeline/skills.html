@@ -1,0 +1,22 @@
+<li>
+                        <div class="item">
+                            <span class="timeline-icon"><i class="fas fa-user-alt"></i></span>
+                            <section id="skills">
+                                <h3  class="timeline-h3 text-capitalize">skills</h3>
+                                <div class="timeline-div row mt-2 d-flex justify-content-center">
+                                    {% for item in skill %}
+                                    <div class="col-sm-4">
+                                        <div class="border-bottom border-dark">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-capitalize">{{ item['info']['skill-title'] }}</h5>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: {{ item['info']['level'] }}%" aria-valuenow="{{ item['info']['level'] }}" aria-valuemin="0" aria-valuemax="100">{{ item['info']['level'] }}%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </section>
+                        </div>
+                    </li>

@@ -1,0 +1,20 @@
+<li>
+                        <div class="item">
+                            <span class="timeline-icon"><i class="fas fa-user-graduate"></i></span>
+                            <section id="education">
+                                <h3  class="timeline-h3 text-capitalize">education</h3>
+                                <div class="timeline-div row mt-2 d-flex justify-content-center">
+                                    {% for item in education %}
+                                    <div class="col-sm-6 mb-2">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <p class="h5 card-title text-capitalize font-weight-bold">{{ item['info']['degree-title'] }}</p>
+                                                <span class="text-capitalize text-muted">{{ item['info']['collage'] }}, {{ item['info']['city'] }}</span> <span class="text-capitalize text-secondary">({{ item['info']['start-date'] }} & {{ item['info']['end-date'] }})</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </section>
+                        </div>
+                    </li>
