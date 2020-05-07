@@ -1,6 +1,9 @@
+import datetime
+
 from flask import Flask, render_template
 
 from getData import Data
+
 
 app = Flask(__name__)
 
@@ -12,12 +15,13 @@ employment = d.get_data('data/sections/employment.json')
 education = d.get_data('data/sections/education.json')
 course = d.get_data('data/sections/courses.json')
 skill = d.get_data('data/sections/skills.json')
+date = datetime.datetime.now().strftime("%Y")
 
 
 @app.route("/")
 def index():
     return render_template("index.html", info=info, summary=summary, employment=employment, education=education,
-                           course=course, skill=skill)
+                           course=course, skill=skill, date=date)
 
 
 @app.route("/jobs")
