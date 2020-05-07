@@ -1,136 +1,148 @@
 <div class="container animated fast fadeInLeft">
     <div class="row">
         <div class="offset-md-1">
-            <ul class="timeline">
-                <li>
-                    <section id="professional-summary">
-                        <div class="row">
-                            <h2 class="text-capitalize border-bottom border-dark">{{ summary['title'] }}</h2>
+            <div class="timeline-cv">
+                <ul>
+                    {% if summary|length > 0 %}
+                    <li>
+                        <div class="item">
+                            <span class="timeline-icon"><i class="fas fa-user-alt"></i></span>
+                            <section id="professional-summary">
+                                <h3 class="timeline-h3 text-capitalize">{{ summary['title'] }}</h3>
+                                <p class="timeline-p text-justify">{{ summary['description'] }}</p>
+                            </section>
                         </div>
-                        <div class="mt-2">
-                            <p class="text-justify">{{ summary['description'] }}</p>
-                        </div>
-                    </section>
-                </li>
-                {% if employment|length > 0 %}
-                <li>
-                    <section id="employment-history">
-                        <div class="row">
-                            <h2 class="text-capitalize border-bottom border-dark">employment history</h2>
-                        </div>
-                        <div class="row justify-content-center">
-                            {% for items in employment %}
-                            <div class="col-6 mt-2">
-                                <ul class="list-group list-group-flush">
-                                    {% for item in items['section'] %}
-                                    <a href="{{ url_for('jobs') }}#{{ item['id'] }}" class="text-capitalize text-reset text-decoration-none border-bottom border-black">
-                                        <li class="list-group-item list-group-item-action">
-                                            {{ item['info']['job-title'] }} <i class="fas fa-angle-right text-secondary" style="float: right;"></i>
-                                        </li>
-                                    </a>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </section>
-                </li>
-                {% endif %} {% if education|length > 0 %}
-                <li>
-                    <section id="education">
-                        <div class="row">
-                            <h2 class="text-capitalize border-bottom border-dark">education</h2>
-                        </div>
-                        <div class="row mt-2 d-flex justify-content-center">
-                            {% for item in education %}
-                            <div class="col-sm-6 mb-2">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <p class="h5 card-title text-capitalize font-weight-bold">{{ item['info']['degree-title'] }}</p>
-                                        <span class="text-capitalize text-muted">{{ item['info']['collage'] }}, {{ item['info']['city'] }}</span> <span class="text-capitalize text-secondary">({{ item['info']['start-date'] }} & {{ item['info']['end-date'] }})</span>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </section>
-                </li>
-                {% endif %}
-                <li>
-                    {% if course|length > 0 %}
-                    <section id="courses">
-                        <div class="row">
-                            <div class="container">
-                                <div class="row">
-                                    <h2 class="text-capitalize border-bottom border-dark">courses & certification</h2>
-                                </div>
-                                <nav class="mt-2">
-                                    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                                        {% for item in course %}
-                                        <a class="nav-item nav-link {% if item['id'] == '1' %} active {% endif %} text-reset" id="nav-{{ item['section-title'] }}-tab" data-toggle="tab" href="#nav-{{ item['section-title'] }}" role="tab" aria-controls="nav-{{ item['section-title'] }}" aria-selected="true">{{ item['section-title'] }}</a>                                        {% endfor %}
-                                    </div>
-                                </nav>
-                                <div class="tab-content" id="nav-tabContent">
-                                    {% for items in course %}
-                                    <div class="tab-pane fade {% if items['id'] == '1' %} show active {% endif %} " id="nav-{{ items['section-title'] }}" role="tabpanel" aria-labelledby="nav-{{ items['section-title'] }}-tab">
-                                        <div class="accordion" id="accordion{{ items['section-title'] }}Section">
-                                            {% for item in items['courses'] %}
-                                            <div class="my-2">
-                                                <div class="border-bottom border-dark" id="accordion-{{ item['course-id'] }}-head" style="cursor: pointer;" data-toggle="collapse" data-target="#accordion{{ item['course-id'] }}Courses" aria-expanded="false" aria-controls="collapseOne">
-                                                    <p class="h4 mb-0 ml-3 p-2 text-capitalize font-weight-bold">{{ item['course-title'] }}</p>
-                                                </div>
+                    </li>
+                    {% endif %}
 
-                                                <div id="accordion{{ item['course-id'] }}Courses" class="collapse" aria-labelledby="accordion-{{ item['course-id'] }}-head" data-parent="#accordion{{ items['section-title'] }}Section">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <p class="h6 text-capitalize ml-4 font-weight-bold">{{ item['academy'] }}</p>
+                    {% if employment|length > 0 %}
+                    <li>
+                        <div class="item">
+                            <span class="timeline-icon"><i class="fas fa-briefcase"></i></i></span>
+                            <section id="employment-summary">
+                                <h3 class="timeline-h3 text-capitalize">employment history</h3>
+                                <div class="timeline-div row justify-content-center">
+                                    {% for items in employment %}
+                                    <div class="col-6 mt-2">
+                                        <ul class="list-group list-group-flush">
+                                            {% for item in items['section'] %}
+                                            <a href="{{ url_for('jobs') }}#{{ item['id'] }}" class="text-capitalize text-reset text-decoration-none border-bottom border-black">
+                                                <li class="list-group-item list-group-item-action">
+                                                    {{ item['info']['job-title'] }} <i class="fas fa-angle-right text-secondary" style="float: right;"></i>
+                                                </li>
+                                            </a>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </section>
+                        </div>
+                    </li>
+                    {% endif %}
+
+                    {% if education|length > 0 %}
+                    <li>
+                        <div class="item">
+                            <span class="timeline-icon"><i class="fas fa-user-graduate"></i></span>
+                            <section id="education">
+                                <h3  class="timeline-h3 text-capitalize">education</h3>
+                                <div class="timeline-div row mt-2 d-flex justify-content-center">
+                                    {% for item in education %}
+                                    <div class="col-sm-6 mb-2">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <p class="h5 card-title text-capitalize font-weight-bold">{{ item['info']['degree-title'] }}</p>
+                                                <span class="text-capitalize text-muted">{{ item['info']['collage'] }}, {{ item['info']['city'] }}</span> <span class="text-capitalize text-secondary">({{ item['info']['start-date'] }} & {{ item['info']['end-date'] }})</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </section>
+                        </div>
+                    </li>
+                    {% endif %}
+
+                    {% if course|length > 0 %}
+                    <li>
+                        <div class="item">
+                            <span class="timeline-icon"><i class="fas fa-certificate"></i></span>
+                            <section id="courses">
+                                <h3  class="timeline-h3 text-capitalize">courses & certification</h3>
+                                <div class="row">
+                                    <div class="container">
+                                        <nav class="mt-2">
+                                            <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                                                {% for item in course %}
+                                                <a class="nav-item nav-link {% if item['id'] == '1' %} active {% endif %} text-reset" id="nav-{{ item['section-title'] }}-tab" data-toggle="tab" href="#nav-{{ item['section-title'] }}" role="tab" aria-controls="nav-{{ item['section-title'] }}" aria-selected="true">{{ item['section-title'] }}</a>                                        {% endfor %}
+                                            </div>
+                                        </nav>
+                                        <div class="tab-content" id="nav-tabContent">
+                                            {% for items in course %}
+                                            <div class="tab-pane fade {% if items['id'] == '1' %} show active {% endif %} " id="nav-{{ items['section-title'] }}" role="tabpanel" aria-labelledby="nav-{{ items['section-title'] }}-tab">
+                                                <div class="accordion" id="accordion{{ items['section-title'] }}Section">
+                                                    {% for item in items['courses'] %}
+                                                    <div class="my-2">
+                                                        <div class="border-bottom border-dark" id="accordion-{{ item['course-id'] }}-head" style="cursor: pointer;" data-toggle="collapse" data-target="#accordion{{ item['course-id'] }}Courses" aria-expanded="false" aria-controls="collapseOne">
+                                                            <p class="h4 mb-0 ml-3 p-2 text-capitalize font-weight-bold">{{ item['course-title'] }}</p>
                                                         </div>
-                                                        <div class="row">
-                                                            <p class="text-capitalize h6 ml-4 text-secondary">{{ item['end-date'] }}</p>
+
+                                                        <div id="accordion{{ item['course-id'] }}Courses" class="collapse" aria-labelledby="accordion-{{ item['course-id'] }}-head" data-parent="#accordion{{ items['section-title'] }}Section">
+                                                            <div class="card-body">
+                                                                <div class="row">
+                                                                    <p class="h6 text-capitalize ml-4 font-weight-bold">{{ item['academy'] }}</p>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <p class="text-capitalize h6 ml-4 text-secondary">{{ item['end-date'] }}</p>
+                                                                </div>
+                                                                <p class="text-justify ml-2 mr-2">
+                                                                    {{ item['description'] }}
+                                                                </p>
+                                                                <p class="text-capitalize ml-2 mr-2">
+                                                                    <a href="{{ item['url-certificate'] }}">Certificate</a>
+                                                                </p>
+                                                            </div>
                                                         </div>
-                                                        <p class="text-justify ml-2 mr-2">
-                                                            {{ item['description'] }}
-                                                        </p>
-                                                        <p class="text-capitalize ml-2 mr-2">
-                                                            <a href="{{ item['url-certificate'] }}">Certificate</a>
-                                                        </p>
                                                     </div>
+                                                    {% endfor %}
                                                 </div>
                                             </div>
                                             {% endfor %}
                                         </div>
                                     </div>
-                                    {% endfor %}
                                 </div>
-                            </div>
+                            </section>
                         </div>
-                    </section>
+                    </li>
                     {% endif %}
-                </li>
-                {% if skill|length > 0 %}
-                <li>
-                    <section id="skills">
-                        <div class="row">
-                            <h2 class="text-capitalize border-bottom border-dark">skills</h2>
-                        </div>
-                        <div class="row mt-2 d-flex justify-content-center">
-                            {% for item in skill %}
-                            <div class="col-sm-4">
-                                <div class="border-bottom border-dark">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-capitalize">{{ item['info']['skill-title'] }}</h5>
-                                        <div class="progress">
-                                            <div class="progress-bar" role="progressbar" style="width: {{ item['info']['level'] }}%" aria-valuenow="{{ item['info']['level'] }}" aria-valuemin="0" aria-valuemax="100">{{ item['info']['level'] }}%</div>
+
+                    {% if skill|length > 0 %}
+                    <li>
+                        <div class="item">
+                            <span class="timeline-icon"><i class="fas fa-user-alt"></i></span>
+                            <section id="skills">
+                                <h3  class="timeline-h3 text-capitalize">skills</h3>
+                                <div class="timeline-div row mt-2 d-flex justify-content-center">
+                                    {% for item in skill %}
+                                    <div class="col-sm-4">
+                                        <div class="border-bottom border-dark">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-capitalize">{{ item['info']['skill-title'] }}</h5>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: {{ item['info']['level'] }}%" aria-valuenow="{{ item['info']['level'] }}" aria-valuemin="0" aria-valuemax="100">{{ item['info']['level'] }}%</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    {% endfor %}
                                 </div>
-                            </div>
-                            {% endfor %}
+                            </section>
                         </div>
-                    </section>
-                </li>
-                {% endif %}
-            </ul>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </div>
 </div>

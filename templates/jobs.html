@@ -1,23 +1,24 @@
 {% extends 'base/base.html' %}
 {% block content %}
-<div class="container my-5">
-    <div class="timeline">
-        <ul>
-            {% for items in jobs %}
-            {% for item in items['section'] %}
-            <li id="{{ item['id'] }}" class="my-2">
-                <div class="" style="width: 100%;">
-                    <h5 class="card-title">{{ item['info']['job-title'] }}</h5>
-                    <p class="card-text h6 text-secondary">{{ item['info']['employer'] }} - {{ item['info']['city'] }}</p>
-                    <p>{{ item['info']['description'] }}</p>
-                </div>
-                <div class="time">
-                    <h4>{{ item['info']['start-date'] }} - {{ item['info']['end-date'] }}</h4>
-                </div>
-            </li>
-            {% endfor %}
-            {% endfor %}
-        </ul>
-    </div>
+
+<div class="timeline mb-5">
+    <ul>
+        {% for items in jobs %}
+        {% for item in items['section'] %}
+        <li id="{{ item['id'] }}" class="my-2">
+            <div class="content" style="width: 100%;">
+                <h3>{{ item['info']['job-title'] }}</h3>
+                <p class="text-secondary">{{ item['info']['employer'] }} - {{ item['info']['city'] }}</p>
+                <p class="text-justify">{{ item['info']['description'] }}</p>
+            </div>
+            <div class="time">
+                <h4>{{ item['info']['start-date'] }} - {{ item['info']['end-date'] }}</h4>
+            </div>
+        </li>
+        {% endfor %}
+        <div style="clear: both;" ></div>
+        {% endfor %}
+    </ul>
 </div>
+<br>
 {% endblock %}
