@@ -1,23 +1,23 @@
 <li>
-                        <div class="item">
-                            <span class="timeline-icon"><i class="fas fa-briefcase"></i></span>
-                            <section id="employment-summary">
-                                <h3 class="timeline-h3 text-capitalize">employment history</h3>
-                                <div class="timeline-div row justify-content-center">
-                                    {% for items in employment %}
-                                    <div class="col-6 mt-2">
-                                        <ul class="list-group list-group-flush">
-                                            {% for item in items['section'] %}
-                                            <a href="{{ url_for('jobs') }}#{{ item['id'] }}" class="text-capitalize text-reset text-decoration-none border-bottom border-black">
-                                                <li class="list-group-item list-group-item-action">
-                                                    {{ item['info']['job-title'] }} <i class="fas fa-angle-right text-secondary" style="float: right;"></i>
-                                                </li>
-                                            </a>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </section>
-                        </div>
-                    </li>
+    <div class="item">
+        <span class="timeline-icon"><i class="fas fa-briefcase"></i></span>
+        <section id="employment-summary">
+            <h3 class="timeline-h3 text-capitalize">employment history</h3>
+            <div class="timeline-div my-3 row justify-content-center">
+                {% for items in employment %}
+                <div class="col-6 mt-2">
+                    <ul class="list-group list-group-flush" style="border-radius: 50px !important;">
+                        {% for item in items['section'] %}
+                        <a href="{{ url_for('jobs') }}#{{ item['id'] }}" class="text-capitalize text-reset text-decoration-none border-bottom border-black">
+                            <li style="background-color: #f5f5f6 !important;;" class="list-group-item list-group-item-action">
+                                {{ item['job-title'] }} <i class="fas fa-angle-right text-secondary" style="float: right;"></i>
+                            </li>
+                        </a>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</li>

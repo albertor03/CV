@@ -1,50 +1,52 @@
 <li>
-                        <div class="item">
-                            <span class="timeline-icon"><i class="fas fa-certificate"></i></span>
-                            <section id="courses">
-                                <h3  class="timeline-h3 text-capitalize">courses & certification</h3>
-                                <div class="row">
-                                    <div class="container">
-                                        <nav class="mt-2">
-                                            <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                                                {% for item in course %}
-                                                <a class="nav-item nav-link {% if item['id'] == '1' %} active {% endif %} text-reset" id="nav-{{ item['section-title'] }}-tab" data-toggle="tab" href="#nav-{{ item['section-title'] }}" role="tab" aria-controls="nav-{{ item['section-title'] }}" aria-selected="true">{{ item['section-title'] }}</a>                                        {% endfor %}
-                                            </div>
-                                        </nav>
-                                        <div class="tab-content" id="nav-tabContent">
-                                            {% for items in course %}
-                                            <div class="tab-pane fade {% if items['id'] == '1' %} show active {% endif %} " id="nav-{{ items['section-title'] }}" role="tabpanel" aria-labelledby="nav-{{ items['section-title'] }}-tab">
-                                                <div class="accordion" id="accordion{{ items['section-title'] }}Section">
-                                                    {% for item in items['courses'] %}
-                                                    <div class="my-2">
-                                                        <div class="border-bottom border-dark" id="accordion-{{ item['course-id'] }}-head" style="cursor: pointer;" data-toggle="collapse" data-target="#accordion{{ item['course-id'] }}Courses" aria-expanded="false" aria-controls="collapseOne">
-                                                            <p class="h4 mb-0 ml-3 p-2 text-capitalize font-weight-bold">{{ item['course-title'] }}</p>
-                                                        </div>
+    <div class="item">
+        <span class="timeline-icon"><i class="fas fa-certificate"></i></span>
+        <section id="courses">
+            <h3 class="timeline-h3 text-capitalize">courses & certification</h3>
+            <div class="row my-3">
+                <div class="container rounded py-2" style="background-color: #f5f5f6 !important;">
+                    <nav class="mt-2">
+                        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                            {% for item in course %}
+                            <a class="nav-item nav-link {% if item['id'] == 1 %} active {% endif %} text-reset" id="nav-{{ item['section'] }}-tab" data-toggle="tab" href="#nav-{{ item['section'] }}" role="tab" aria-controls="nav-{{ item['section'] }}" aria-selected="true">{{ item['section'] }}</a>
+                            {% endfor %}
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        {% for items in course %}
+                        <div class="tab-pane fade {% if items['id'] == 1 %} show active {% endif %} " id="nav-{{ items['section'] }}" role="tabpanel" aria-labelledby="nav-{{ items['section'] }}-tab">
+                            <div class="accordion" id="accordion{{ items['section'] }}Section">
 
-                                                        <div id="accordion{{ item['course-id'] }}Courses" class="collapse" aria-labelledby="accordion-{{ item['course-id'] }}-head" data-parent="#accordion{{ items['section-title'] }}Section">
-                                                            <div class="card-body">
-                                                                <div class="row">
-                                                                    <p class="h6 text-capitalize ml-4 font-weight-bold">{{ item['academy'] }}</p>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <p class="text-capitalize h6 ml-4 text-secondary">{{ item['end-date'] }}</p>
-                                                                </div>
-                                                                <p class="text-justify ml-2 mr-2">
-                                                                    {{ item['description'] }}
-                                                                </p>
-                                                                <p class="text-capitalize ml-2 mr-2">
-                                                                    <a href="{{ item['url-certificate'] }}">Certificate</a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {% endfor %}
-                                                </div>
+                                {% for item in items['courses'] %}
+                                <div class="my-2">
+                                    <div class="border-bottom border-dark" id="accordion-{{ item['id'] }}-head" style="cursor: pointer;" data-toggle="collapse" data-target="#accordion{{ item['id'] }}Courses" aria-expanded="false" aria-controls="collapseOne">
+                                        <p class="h4 mb-0 ml-3 p-2 text-capitalize font-weight-bold">{{ item['title'] }}</p>
+                                    </div>
+
+                                    <div id="accordion{{ item['id'] }}Courses" class="collapse {% if item['id-course'] == 1 %} show {% endif %} " aria-labelledby="accordion-{{ item['id'] }}-head" data-parent="#accordion{{ items['section'] }}Section">
+                                        <div class="card-body my-n2">
+                                            <div class="row">
+                                                <p class="h6 text-capitalize ml-4 font-weight-bold">{{ item['academy'] }}</p>
                                             </div>
-                                            {% endfor %}
+                                            <div class="row">
+                                                <p class="text-capitalize h6 ml-4 text-secondary">{{ item['end-date'] }}</p>
+                                            </div>
+                                            <p class="text-justify mx-2">
+                                                {{ item['description'] }}
+                                            </p>
+                                            <p class="text-capitalize mx-2">
+                                                <a href="{{ item['url-certificate'] }}">Certificate</a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
+                                {% endfor %}
+                            </div>
                         </div>
-                    </li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</li>

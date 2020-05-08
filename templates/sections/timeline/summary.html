@@ -2,8 +2,12 @@
     <div class="item">
         <span class="timeline-icon"><i class="fas fa-user-alt"></i></span>
         <section id="professional-summary">
-            <h3 class="timeline-h3 text-capitalize">{{ summary['title'] }}</h3>
-            <p class="timeline-p text-justify">{{ summary['description'] }}</p>
+            <h3 class="timeline-h3 text-capitalize">professional summary</h3>
+            <div class="row">
+                <div class="container rounded" style="background-color: #f5f5f6 !important;">
+                    <p class="timeline-p my-3 text-justify">{{ info['summary'] }}</p>
+                </div>
+            </div>
         </section>
     </div>
 </li>

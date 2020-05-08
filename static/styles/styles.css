@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #e1e2e1;
 }
 .timeline-cv{
     margin: 20px auto;
@@ -144,4 +145,24 @@ body{
     color: #fff;
     border-radius: 18px;
     box-shadow: 0 0 0 3px rgba(38, 50, 56, 0.3);
+}
+#top-button {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #37474f; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  border-radius: 50%; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  width: 50px;
+  height: 50px;
+}
+
+#top-button:hover {
+  background-color: #546e7a; /* Add a dark-grey background on hover */
 }

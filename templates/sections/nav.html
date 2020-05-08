@@ -1,6 +1,6 @@
-<header class="bg-dark">
+<header style="background: #263238 !important;">
     <div class="container">
-        <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark" style="background: #263238 !important;">
             <a class="navbar-brand mt-n2 mb-n1" href="{{ url_for('index') }}">
                 <img src="{{ url_for('static', filename='img/avatar.png') }}" width="50" height="50" alt="" class="rounded-circle">
             </a>
@@ -10,16 +10,16 @@
                         <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize" href="#employment-history">employment history</a>
+                        <a class="nav-link text-capitalize" href="{{ url_for('index') }}#employment-history">employment history</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize" href="#education">education</a>
+                        <a class="nav-link text-capitalize" href="{{ url_for('index') }}#education">education</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize" href="#courses">courses</a>
+                        <a class="nav-link text-capitalize" href="{{ url_for('index') }}#courses">courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-capitalize" href="#skills">skills</a>
+                        <a class="nav-link text-capitalize" href="{{ url_for('index') }}#skills">skills</a>
                     </li>
                 </ul>
             </div>

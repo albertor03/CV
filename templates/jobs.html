@@ -7,12 +7,12 @@
         {% for item in items['section'][::-1] %}
         <li id="{{ item['id'] }}" class="my-2">
             <div class="content" style="width: 100%;">
-                <h3>{{ item['info']['job-title'] }}</h3>
-                <p class="text-secondary">{{ item['info']['employer'] }} - {{ item['info']['city'] }}</p>
-                <p class="text-justify">{{ item['info']['description'] }}</p>
+                <h3>{{ item['job-title'] }}</h3>
+                <p class="text-secondary">{{ item['employer'] }} - {{ item['city'] }}</p>
+                <p class="text-justify">{{ item['description'] }}</p>
             </div>
             <div class="time">
-                <h4>{{ item['info']['start-date'] }} - {{ item['info']['end-date'] }}</h4>
+                <h4>{{ item['start-date'] }} - {{ item['end-date'] }}</h4>
             </div>
         </li>
         {% endfor %}
@@ -21,4 +21,7 @@
     <div style="clear: both;" ></div>
 </div>
 <br>
+<button type="button" id="top-button" onclick="topFunction()"><i class="fas fa-angle-up mx-auto my-auto"></i></button>
+<script src="{{ url_for('static', filename='js/script.js') }}" ></script>
 {% endblock %}
+
