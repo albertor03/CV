@@ -1,15 +1,19 @@
 import json
 import requests
 
+
 class Data:
 
-    def get_data(self, path):
-        data = self.open_file(path)
+    @staticmethod
+    def get_data(path):
+        x = requests.get(path).text
+
+        data = json.loads(x.replace("null,", ""))
 
         return data
 
     def get_last_employment(self, path):
-        data = self.get_data_url(path)
+        data = self.get_data(path)
         last = list()
         employment = list()
 
@@ -21,19 +25,3 @@ class Data:
         employment.append(last[-5])
 
         return employment
-
-    @staticmethod
-    def open_file(path):
-        file = open(path, 'r')
-        data = json.load(file)
-        file.close()
-
-        return data
-
-    @staticmethod
-    def get_data_url(path):
-        x = requests.get(path).text
-
-        data = json.loads(x.replace("null,", ""))
-
-        return data
