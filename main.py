@@ -1,6 +1,8 @@
 import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from werkzeug.security import generate_password_hash, check_password_hash
+
 from getData import Data
 
 # App initialization
@@ -29,6 +31,19 @@ def index():
 @app.route("/jobs")
 def jobs():
     return render_template("jobs.html", info=info, jobs=employment)
+
+
+@app.route("/admin", methods=['GET', 'POST'])
+def admin():
+    if request.method == 'POST':
+        users = d.get_user()
+        user = request.form['InputUser'] == users['user']
+
+        if user and check_password_hash(users['password'], request.form['InputPassword']):
+            return render_template("/admin/admin.html", info=info, alert_d="", alert_s="You're logged in.")
+        return render_template("/admin/admin.html", info=info,
+                               alert_d="Your credentials are invalid, check and try again.")
+    return render_template("/admin/admin.html", info=info, alert_d='', alert_s='')
 
 
 if __name__ == "__main__":

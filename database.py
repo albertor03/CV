@@ -1,4 +1,5 @@
 import pyrebase
+from werkzeug.security import generate_password_hash, check_password_hash
 
 firebaseConfig = {
     "apiKey": "AIzaSyCHfMchjhqW_m9ARFGuxdzE2b0pABi1Bps",
@@ -14,3 +15,15 @@ firebaseConfig = {
 
 firebase = pyrebase.initialize_app(firebaseConfig)
 db = firebase.database()
+
+user = 'admin'
+p = '12345678'
+
+hashed_pass = generate_password_hash(p, method="sha256")
+
+d = {"user": user, "password": hashed_pass}
+
+# db.child('users').child(user).set(d)
+
+users = db.child("users").get()
+print(users.val()['admin']['user'])
