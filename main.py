@@ -40,11 +40,15 @@ def admin():
         user = request.form['InputUser'] == users['user']
 
         if user and check_password_hash(users['password'], request.form['InputPassword']):
-            return render_template("/admin/admin.html", info=info, alert_d="", alert_s="You're logged in.")
-        return render_template("/admin/admin.html", info=info,
+            return render_template("/admin/admin_login.html", info=info, alert_d="", alert_s="You're logged in.")
+        return render_template("/admin/admin_login.html", info=info,
                                alert_d="Your credentials are invalid, check and try again.")
-    return render_template("/admin/admin.html", info=info, alert_d='', alert_s='')
+    return render_template("/admin/admin_login.html", info=info, alert_d='', alert_s='')
 
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("/admin/admin_dashboard.html", info=info)
 
 if __name__ == "__main__":
     app.run(debug=True)

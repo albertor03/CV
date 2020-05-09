@@ -5572,7 +5572,7 @@ digital-tachograph:
   label: Digital Tachograph
   search:
     terms:
-      - database
+      - data
       - distance
       - speed
       - tachometer
@@ -18246,7 +18246,7 @@ table:
   label: table
   search:
     terms:
-      - database
+      - data
       - excel
       - spreadsheet
   styles:

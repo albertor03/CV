@@ -1,3 +1,16 @@
+function sideMenu(){
+  button = $('#btn-sidebar');
+  menu = $('.navegation .menu')
+
+  if (button.attr('class') == 'fas fa-bars'){
+    button.removeClass('fas fa-bars').addClass('fas fa-times');
+    menu.css({'left': '0px'})
+  }else{
+    button.removeClass('fas fa-times').addClass('fas fa-bars');
+    menu.css({'left': '-320px'})
+  }
+}
+
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
@@ -14,3 +27,4 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
