@@ -48,7 +48,9 @@ def admin():
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("/admin/admin_dashboard.html", info=info)
+    sections = d.get_sections()
+    return render_template("/admin/admin_dashboard.html", info=info, sections=sections)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

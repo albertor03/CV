@@ -18,7 +18,8 @@ class Data:
             "serviceAccount": "database/cv-flask-firebase-adminsdk-hh9s9-f13a390c3e.json"
         }
 
-        self.firebase = pyrebase.initialize_app(firebase_config)
+        firebase = pyrebase.initialize_app(firebase_config)
+        self.db = firebase.database()
 
     @staticmethod
     def get_data(path):
@@ -43,8 +44,10 @@ class Data:
         return employment
 
     def get_user(self):
-
-        db = self.firebase.database()
-        user = db.child("users").get()
+        user = self.db.child("users").get()
 
         return user.val()['admin']
+
+    def get_sections(self):
+        sections = self.db.child("sections").get()
+        return sections

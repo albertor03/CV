@@ -21,9 +21,25 @@ p = '12345678'
 
 hashed_pass = generate_password_hash(p, method="sha256")
 
-d = {"user": user, "password": hashed_pass}
+d = [
+    {
+        "section": "professional summary"
+    },
+    {
+        "section": "employment history"
+    },
+    {
+        "section":  "education"
+    },
+    {
+        "section":  "courses & certifications"
+    },
+    {
+        "section":  "skills"
+    }
+]
 
-# db.child('users').child(user).set(d)
+# db.child('sections').set(d)
 
-users = db.child("users").get()
-print(users.val()['admin']['user'])
+users = db.child("sections").get()
+print(users.val()[0])

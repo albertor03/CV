@@ -1,9 +1,9 @@
 function sideMenu(){
   button = $('#btn-sidebar');
-  menu = $('.navegation .menu')
+  menu = $('.header-navegation ul')
 
   if (button.attr('class') == 'fas fa-bars'){
-    button.removeClass('fas fa-bars').addClass('fas fa-times');
+    button.removeClass('fas fa-bars').addClass('fas fa-times').css({'transition': '.3s'});
     menu.css({'left': '0px'})
   }else{
     button.removeClass('fas fa-times').addClass('fas fa-bars');
