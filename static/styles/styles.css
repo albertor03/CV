@@ -190,7 +190,7 @@ body{
     padding: 0 !important;
     flex: 0 0 25%;
     max-width: 25%;
-    min-height: 80.5vh;
+    min-height: 81.2vh;
 }
 .header-navegation ul{
     display: flex;
@@ -227,13 +227,18 @@ body{
     font-weight: 500;
     font-size: 16px;
 }
-#btn-signout{
+#btn-signout, #btn-home{
     font-weight: 700;
-    font-size: 46px;
+    font-size: 40px;
     padding: .25rem .75rem;
     margin: 0;
-    float: right;
     color: white;
+}
+#btn-signout{
+    float: right;
+}
+#btn-home{
+    float: left;
 }
 #div-sections .card a{
     text-decoration: none;
