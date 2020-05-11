@@ -50,4 +50,4 @@ class Data:
 
     def get_sections(self):
         sections = self.db.child("sections").get()
-        return sections
+        return sections.val()

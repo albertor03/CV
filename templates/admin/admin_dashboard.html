@@ -1,0 +1,22 @@
+{% extends "base/dashboard_base.html" %}
+{% block content %}
+
+<div class="col-9">
+  <div id="div-sections" class="row d-flex justify-content-center">
+    {% if sections != '' %}
+    {% for item in sections %}
+      <div class="col-5 mt-4">
+        <div class="card" style="width: 18rem;">
+          <a href="#" class="text-reset">
+            <div class="card-body">
+              <p class="card-text text-uppercase">{{ item['section'] }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+    {% endif %}
+  </div>  
+</div>
+
+{% endblock %}

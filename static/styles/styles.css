@@ -237,4 +237,14 @@ body{
 }
 #div-sections .card a{
     text-decoration: none;
+    display: block;
+}
+#div-sections .card a p::after{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f054';
+    float: right;
+}
+#div-sections .card a i{
+    padding: 0 15px;
 }

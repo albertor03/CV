@@ -23,23 +23,29 @@ hashed_pass = generate_password_hash(p, method="sha256")
 
 d = [
     {
-        "section": "professional summary"
+        "section": "professional summary",
+        "icon": "fas fa-user-alt"
     },
     {
-        "section": "employment history"
+        "section": "employment history",
+        "icon": "fas fa-briefcase"
     },
     {
-        "section":  "education"
+        "section":  "education",
+        "icon": "fas fa-user-graduate"
     },
     {
-        "section":  "courses & certifications"
+        "section":  "courses & certifications",
+        "icon": "fas fa-certificate"
     },
     {
-        "section":  "skills"
+        "section":  "skills",
+        "icon": "fas fa-user-alt"
     }
 ]
 
-# db.child('sections').set(d)
+db.child('sections').set(d)
 
-users = db.child("sections").get()
-print(users.val()[0])
+# users = db.child("sections").get()
+
+# print(users.val())
