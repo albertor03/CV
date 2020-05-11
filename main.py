@@ -46,7 +46,7 @@ def admin():
     return render_template("/admin/admin_login.html", info=info, alert_d='', alert_s='')
 
 
-@app.route("/dashboard")
+@app.route("/dashboard/sections")
 def dashboard():
     sections = d.get_sections()
     return render_template("/admin/admin_dashboard.html", info=info, sections=sections)

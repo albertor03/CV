@@ -1,16 +1,3 @@
-function sideMenu(){
-  button = $('#btn-sidebar');
-  menu = $('.header-navegation ul')
-
-  if (button.attr('class') == 'fas fa-bars'){
-    button.removeClass('fas fa-bars').addClass('fas fa-times').css({'transition': '.3s'});
-    menu.css({'left': '0px'})
-  }else{
-    button.removeClass('fas fa-times').addClass('fas fa-bars');
-    menu.css({'left': '-320px'})
-  }
-}
-
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 

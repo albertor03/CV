@@ -190,7 +190,7 @@ body{
     padding: 0 !important;
     flex: 0 0 25%;
     max-width: 25%;
-    min-height: 1000px;
+    min-height: 80.5vh;
 }
 .header-navegation ul{
     display: flex;
@@ -198,7 +198,7 @@ body{
     padding-left: 0;
     margin-bottom: 0;
     height: 100%;
-    transition: left .5s;
+    transition: left .3s;
 }
 .header-navegation ul li:hover{
     background-color: #546e7a; 
@@ -226,4 +226,15 @@ body{
     color: #fff;
     font-weight: 500;
     font-size: 16px;
+}
+#btn-signout{
+    font-weight: 700;
+    font-size: 46px;
+    padding: .25rem .75rem;
+    margin: 0;
+    float: right;
+    color: white;
+}
+#div-sections .card a{
+    text-decoration: none;
 }
