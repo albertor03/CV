@@ -46,6 +46,5 @@ d = [
 
 db.child('sections').set(d)
 
-# users = db.child("sections").get()
-
-# print(users.val())
+# users = db.child("sections").child("employment").get()
+# print(users.val()['section'])

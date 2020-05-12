@@ -51,3 +51,7 @@ class Data:
     def get_sections(self):
         sections = self.db.child("sections").get()
         return sections.val()
+
+    def get_section(self, section):
+        sections = self.db.child(section).get()
+        return sections.val()

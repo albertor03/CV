@@ -17,9 +17,14 @@
             {% include "navbar/dashboard_nav.html" %}
         </div>
         <div class="row">
-            {% include "admin/sections/navbar.htm" %}
-            {% block content %}
-            {% endblock %}
+            <div class="col-md-3 	.d-sm-none .d-md-block" style="margin: 0 !important; padding: 0 !important;">
+                {% include "admin/sections/navbar.htm" %}
+            </div>
+            <div class="col-9">
+                {% include "admin/sections/breadcrumb.html" %}
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
     </div>
        
