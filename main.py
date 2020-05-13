@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash, session, escape
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from getData import Data
@@ -20,6 +20,8 @@ skill = d.get_data('https://cv-flask.firebaseio.com/skills.json')
 # Variables
 date = datetime.datetime.now().strftime("%Y")
 
+app.secret_key = '12345'
+
 
 # Routes
 @app.route("/")
@@ -36,16 +38,30 @@ def jobs():
 
 @app.route("/admin", methods=['GET', 'POST'])
 @app.route("/admin/", methods=['GET', 'POST'])
-def admin():
+def login():
     if request.method == 'POST':
         users = d.get_user()
         user = request.form['InputUser'] == users['user']
 
         if user and check_password_hash(users['password'], request.form['InputPassword']):
-            return render_template("/admin/admin_login.html", info=info, alert_d="", alert_s="You're logged in.")
-        return render_template("/admin/admin_login.html", info=info,
-                               alert_d="Your credentials are invalid, check and try again.")
-    return render_template("/admin/admin_login.html", info=info, alert_d='', alert_s='')
+            session["username"] = users['user']
+            flash("You're logged in.", "success")
+            return redirect(url_for('dashboard_section'))
+
+        flash("Your credentials are invalid, check and try again.", "danger")
+        return render_template("/admin/admin_login.html", info=info)
+
+    if "username" in session:
+        return redirect(url_for('dashboard_section'))
+    fixed = True
+    return render_template("/admin/admin_login.html", info=info, fix=fixed)
+
+
+@app.route("/logout")
+@app.route("/logout/")
+def logout():
+    session.pop("username", None)
+    return redirect(url_for('login'))
 
 
 @app.route("/dashboard/")
@@ -57,8 +73,12 @@ def dashboard():
 @app.route("/dashboard/sections")
 @app.route("/dashboard/sections/")
 def dashboard_section():
-    value = d.get_sections()
-    return render_template("/admin/admin_dashboard.html", info=info, sections=value)
+    if "username" in session:
+        value = d.get_sections()
+        return render_template("/admin/admin_dashboard.html", info=info, sections=value)
+
+    flash("You muss log in first.", "danger")
+    return render_template("/admin/admin_login.html", info=info)
 
 
 @app.route("/dashboard/sections/<string:section>")
@@ -66,7 +86,8 @@ def dashboard_section():
 def sections(section):
     menu = d.get_sections()
     value = d.get_section(section)
-    return render_template("/admin/admin_section.html", info=info, sections=menu)
+    fixed = True
+    return render_template("/admin/admin_section.html", info=info, sections=menu, fix=fixed)
 
 
 if __name__ == "__main__":
