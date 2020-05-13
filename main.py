@@ -29,11 +29,13 @@ def index():
 
 
 @app.route("/jobs")
+@app.route("/jobs/")
 def jobs():
     return render_template("jobs.html", info=info, jobs=employment)
 
 
 @app.route("/admin", methods=['GET', 'POST'])
+@app.route("/admin/", methods=['GET', 'POST'])
 def admin():
     if request.method == 'POST':
         users = d.get_user()
@@ -46,14 +48,15 @@ def admin():
     return render_template("/admin/admin_login.html", info=info, alert_d='', alert_s='')
 
 
-@app.route("/dashboard/sections/")
 @app.route("/dashboard/sections")
+@app.route("/dashboard/sections/")
 def dashboard():
     value = d.get_sections()
     return render_template("/admin/admin_dashboard.html", info=info, sections=value)
 
 
 @app.route("/dashboard/sections/<string:section>")
+@app.route("/dashboard/sections/<string:section>/")
 def sections(section):
     value = d.get_section(section)
     return value[1]

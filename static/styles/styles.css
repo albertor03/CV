@@ -185,12 +185,12 @@ body{
 .bd-dark{
     background-color: #263238 !important;
 }
-.header-navegation{
+.header-navigation{
     margin: 0 !important;
     padding: 0 !important;
-    min-height: 81.2vh;
+    height: 100%;
 }
-.header-navegation ul{
+.header-navigation ul{
     display: flex;
     flex-direction: column;
     padding-left: 0;
@@ -198,13 +198,13 @@ body{
     height: 100%;
     transition: left .3s;
 }
-.header-navegation ul li:hover{
+.header-navigation ul li:hover{
     background-color: #546e7a; 
 }
-.header-navegation ul li i{
+.header-navigation ul li i{
     padding: 0px 12px;
 }
-.header-navegation ul a{
+.header-navigation ul a{
     display: block;
     padding: 20px 5px;
     font-weight: 200;
@@ -212,14 +212,14 @@ body{
     color: #fff;
     border-bottom: 1px solid #000a12;
 }
-.header-navegation ul a::after{
+.header-navigation ul a::after{
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     content: '\f054';
     float: right;
     padding-right: 12px;
 }
-.header-navegation ul a span{
+.header-navigation ul a span{
     text-transform: capitalize;
     color: #fff;
     font-weight: 500;

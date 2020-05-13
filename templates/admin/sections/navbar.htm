@@ -1,10 +1,9 @@
 {% if sections != '' %}
-<div id="menu" class="header-navegation bd-dark text-white collapse show">
+<div id="menu" class="header-navigation bd-dark text-white collapse show">
     <ul>
       {% for item in sections %}
       <li><a href="#"><i class="icon-menu {{item['icon']}}"></i><span class="text-uppercase">{{ item['section'] }}</span></a></li>
       {% endfor %}
-      <li><a href="#"><i class="fas fa-cog"></i><span class="text-uppercase">Configuration</span></a></li>
     </ul>
 </div>
 {% endif %}
