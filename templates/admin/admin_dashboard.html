@@ -5,7 +5,7 @@
   {% for item in sections %}
     <div class="col-md-4 col-sm-12 my-5">
       <div class="card card-dashboard" style="width: 18rem;">
-        <a href="#" class="text-reset">
+        <a href="{{ url_for('sections', section=item['id']) }}" class="text-reset">
           <div class="image text-center"><i class="{{ item['icon'] }}"></i></div>
           <div class="card-body">
             <p class="card-text text-center text-uppercase font-weight-bold">{{ item['section'] }}</p>

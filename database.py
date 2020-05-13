@@ -23,22 +23,27 @@ hashed_pass = generate_password_hash(p, method="sha256")
 
 d = [
     {
+        "id": "professional-summary",
         "section": "professional summary",
         "icon": "fas fa-user-alt"
     },
     {
+        "id": "employment-history",
         "section": "employment history",
         "icon": "fas fa-briefcase"
     },
     {
+        "id": "education",
         "section":  "education",
         "icon": "fas fa-user-graduate"
     },
     {
+        "id": "courses-certifications",
         "section":  "courses & certifications",
         "icon": "fas fa-certificate"
     },
     {
+        "id": "skills",
         "section":  "skills",
         "icon": "fas fa-user-alt"
     }

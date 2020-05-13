@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from getData import Data
@@ -48,9 +48,15 @@ def admin():
     return render_template("/admin/admin_login.html", info=info, alert_d='', alert_s='')
 
 
+@app.route("/dashboard/")
+@app.route("/dashboard")
+def dashboard():
+    return redirect(url_for('dashboard_section'))
+
+
 @app.route("/dashboard/sections")
 @app.route("/dashboard/sections/")
-def dashboard():
+def dashboard_section():
     value = d.get_sections()
     return render_template("/admin/admin_dashboard.html", info=info, sections=value)
 
@@ -58,8 +64,9 @@ def dashboard():
 @app.route("/dashboard/sections/<string:section>")
 @app.route("/dashboard/sections/<string:section>/")
 def sections(section):
+    menu = d.get_sections()
     value = d.get_section(section)
-    return value[1]
+    return render_template("/admin/admin_section.html", info=info, sections=menu)
 
 
 if __name__ == "__main__":
