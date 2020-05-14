@@ -1,37 +1,10 @@
-<footer class="px-3 text-white" style="background-color: #263238;" >
-    <div class="container">
-        <div class="row mb-2">
-            <div class="col-sm-12 col-md-4 py-3">
-                <div class="pl-2">
-                    <h4 class="text-center text-uppercase border-bottom border-white mx-5">contact me</h4>
-                    <div class="ml-5 justify-content-center">
-                        <span class="text-capitalize mr-2"><i class="fab fa-whatsapp"></i></span><span><a href="{{ info['cell-phone']['url'] }}" target="target_blank" class="text-reset">{{ info['cell-phone']['number'] }}</a></span><br>
-                        <span class="text-capitalize mr-2"><i class="fab fa-skype"></i></span><span>{{ info['skype'] }}</span><br>
-                        <span class="text-capitalize mr-2"><i class="far fa-envelope"></i></span><a href="mailto:{{ info['email'] }}" class="text-reset">{{ info['email'] }}</a><br>
-                        <span class="text-capitalize mr-2"><i class="fab fa-linkedin"></i></span><a href="{{ info['linkedin'] }}" class="text-reset">{{ info['first-name'] }} {{ info['last-name'] }}</a><br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 py-3">
-                <div class="pl-2 text-center">
-                    <h4 class="text-uppercase border-bottom border-white mx-5">address</h4>
-                    <span class="text-capitalize mr-2"><i class="fas fa-map-marker-alt"></i></span><span>{{ info['address'] }}</span>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 py-3">
-                <div class="pl-2 text-center">
-                    <h4 class="text-uppercase border-bottom border-white mx-5">projects</h4>
-                    <a href="{{ info['github'] }}" class="text-capitalize mr-1 text-reset" target="target_blank" style="font-size: 50px;"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row pt-3 text-center justify-content-center" style="background-color: #000a12;">
+<footer class="pt-n5 px-3 py-3 text-white" style="background-color: #000a12;">
+    <div class="row text-center justify-content-center">
         <span>©{{ date }} Copyright:
             <a href="https://github.com/albertor03/CV" target="target_blank" class="text-reset">{{ info['first-name'] }} {{ info['last-name'] }} </a>
         </span>
     </div>
-    <div class="row pb-2 text-center justify-content-center" style="background-color: #000a12;">
+    <div class="row text-center justify-content-center">
         <span class="text-secondary" style="font-size: 14px;">Powered by <a class="text-reset" target="target_blank" href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a></span>
     </div>
 </footer>

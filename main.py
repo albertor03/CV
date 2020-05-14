@@ -12,10 +12,6 @@ app = Flask(__name__)
 d = Data()
 info = d.get_data('https://cv-flask.firebaseio.com/info.json')
 employment = d.get_data('https://cv-flask.firebaseio.com/employment.json')
-last_employment = d.get_last_employment('https://cv-flask.firebaseio.com/employment.json')
-education = d.get_data('https://cv-flask.firebaseio.com/education.json')
-course = d.get_data('https://cv-flask.firebaseio.com/course.json')
-skill = d.get_data('https://cv-flask.firebaseio.com/skills.json')
 
 # Variables
 date = datetime.datetime.now().strftime("%Y")
@@ -26,6 +22,12 @@ app.secret_key = '12345'
 # Routes
 @app.route("/")
 def index():
+
+    last_employment = d.get_last_employment('https://cv-flask.firebaseio.com/employment.json')
+    education = d.get_data('https://cv-flask.firebaseio.com/education.json')
+    course = d.get_data('https://cv-flask.firebaseio.com/course.json')
+    skill = d.get_data('https://cv-flask.firebaseio.com/skills.json')
+
     return render_template("index.html", info=info, employment=employment, last=last_employment,
                            education=education, course=course, skill=skill, date=date)
 
@@ -33,7 +35,7 @@ def index():
 @app.route("/jobs")
 @app.route("/jobs/")
 def jobs():
-    return render_template("jobs.html", info=info, jobs=employment)
+    return render_template("jobs.html", info=info, jobs=employment, date=date)
 
 
 @app.route("/admin", methods=['GET', 'POST'])
@@ -49,12 +51,12 @@ def login():
             return redirect(url_for('dashboard_section'))
 
         flash("Your credentials are invalid, check and try again.", "danger")
-        return render_template("/admin/admin_login.html", info=info)
+        return render_template("/admin/admin_login.html", info=info, date=date)
 
     if "username" in session:
         return redirect(url_for('dashboard_section'))
     fixed = True
-    return render_template("/admin/admin_login.html", info=info, fix=fixed)
+    return render_template("/admin/admin_login.html", info=info, fix=fixed, date=date)
 
 
 @app.route("/logout")
