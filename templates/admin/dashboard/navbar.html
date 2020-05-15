@@ -1,0 +1,14 @@
+{% if sections != '' %}
+<nav id="sidebar" class="bd-dark">
+  <ul>
+    {% for item in sections %}
+    <li>
+      <a href="{{ url_for('sections', section=item['id']) }}">
+        <i class="icon-menu  {{ item['icon'] }}"></i>
+        <span class="text-uppercase">{{ item['section'] }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+{% endif %}

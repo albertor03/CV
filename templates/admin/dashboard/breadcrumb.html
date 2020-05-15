@@ -1,0 +1,17 @@
+<div class="row">
+  <nav aria-label="breadcrumb" class="mt-2 mb-n3">
+      <ol class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li class="breadcrumb-item {{ 'active' if loop.last }} text-capitalize">
+          {% if not loop.last %}
+          <a href='{{ breadcrumb.url }}'>
+          {% endif %}
+            {{ breadcrumb.text }}
+          {% if not loop.last %}
+          </a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+  </nav>
+</div>
