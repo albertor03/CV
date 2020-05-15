@@ -1,4 +1,9 @@
-<header class="sticky-top container-fluid bd-dark text-white" style="border-bottom: 1px solid #000a12;">
-    <a href="{{ url_for('dashboard_section') }}" id="btn-home" class="btn fas fa-home"></a>
-    <a href="{{ url_for('logout') }}" id="btn-signout" class="btn fas fa-sign-out-alt"></a>
-</header>
+<div class="container-fluid bd-dark" style="border-bottom: 1px solid #000;">
+    <nav class="navbar navbar-header">
+        <div class="navbar-buttons">
+            <a id="btn-menu" class="btn fas fa-bars"></a>
+            <a href="{{ url_for('logout') }}" id="btn-signout" class="btn fas fa-sign-out-alt"></a>
+            <a href="{{ url_for('dashboard_section') }}" id="btn-home" class="btn fas fa-home"></a>
+        </div>
+    </nav>
+</div>

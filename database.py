@@ -21,35 +21,72 @@ p = '12345678'
 
 hashed_pass = generate_password_hash(p, method="sha256")
 
-d = [
-    {
+"""d = {
+    "professional-summary": [{
         "id": "professional-summary",
         "section": "professional summary",
         "icon": "fas fa-user-alt"
-    },
-    {
+    }],
+    "employment-history": [{
         "id": "employment-history",
         "section": "employment history",
         "icon": "fas fa-briefcase"
-    },
-    {
+    }],
+    "education": [{
         "id": "education",
         "section":  "education",
         "icon": "fas fa-user-graduate"
-    },
-    {
+    }],
+    "courses-certifications": [{
         "id": "courses-certifications",
         "section":  "courses & certifications",
         "icon": "fas fa-certificate"
-    },
-    {
+    }],
+    "skills": [{
         "id": "skills",
         "section":  "skills",
         "icon": "fas fa-user-alt"
-    }
-]
-
+    }],
+    "configurations": [{
+        "id": "configurations",
+        "section":  "configurations",
+        "icon": "fas fa-cog"
+    }]
+}
 db.child('sections').set(d)
 
-# users = db.child("sections").child("employment").get()
-# print(users.val()['section'])
+menu = [
+    {
+        "name": "professional-summary"
+    },
+    {
+        "name": "employment-history"
+    },
+    {
+        "name": "education"
+    },
+    {
+        "name": "courses-certifications"
+    },
+    {
+        "name": "skills"
+    },
+    {
+        "name": "configurations"
+    }
+]"""
+
+
+
+users = db.child("menu").get()
+menu = list()
+section = list()
+
+for item in users.val():
+    menu.append(item['name'])
+
+for item in menu:
+    sections = db.child('sections').child(item).get()
+    section += sections.val()
+
+print(section)

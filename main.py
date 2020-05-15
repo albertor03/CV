@@ -1,12 +1,14 @@
 import datetime
 
 from flask import Flask, render_template, request, redirect, url_for, flash, session, escape
+from flask_breadcrumbs import Breadcrumbs, register_breadcrumb
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from getData import Data
 
 # App initialization
 app = Flask(__name__)
+Breadcrumbs(app=app)
 
 # Data
 d = Data()
@@ -51,7 +53,8 @@ def login():
             return redirect(url_for('dashboard_section'))
 
         flash("Your credentials are invalid, check and try again.", "danger")
-        return render_template("/admin/admin_login.html", info=info, date=date)
+        fixed = True
+        return render_template("/admin/admin_login.html", info=info, fix=fixed, date=date)
 
     if "username" in session:
         return redirect(url_for('dashboard_section'))
@@ -68,28 +71,37 @@ def logout():
 
 @app.route("/dashboard/")
 @app.route("/dashboard")
+@register_breadcrumb(app, '.', 'Dashboard')
 def dashboard():
     return redirect(url_for('dashboard_section'))
 
 
 @app.route("/dashboard/sections")
 @app.route("/dashboard/sections/")
+@register_breadcrumb(app, '.Dashboard', 'Sections')
 def dashboard_section():
     if "username" in session:
         value = d.get_sections()
-        return render_template("/admin/admin_dashboard.html", info=info, sections=value)
+        return render_template("/admin/dashboard/admin_dashboard.html", info=info, date=date, sections=value)
 
     flash("You muss log in first.", "danger")
     return render_template("/admin/admin_login.html", info=info)
 
 
+def view_section(*args, **kwargs):
+    section = request.view_args['section']
+    name = d.get_section(section)
+    return [{'text': name[0]['section']}]
+
+
 @app.route("/dashboard/sections/<string:section>")
 @app.route("/dashboard/sections/<string:section>/")
+@register_breadcrumb(app, '.Dashboard.Sections', '', dynamic_list_constructor=view_section)
 def sections(section):
     menu = d.get_sections()
-    value = d.get_section(section)
-    fixed = True
-    return render_template("/admin/admin_section.html", info=info, sections=menu, fix=fixed)
+    name = d.get_section(section)
+    values = d.get_values(name[0]['id'])
+    return render_template("/admin/dashboard/sections/admin_section.html", info=info, sections=menu, value=values, date=date)
 
 
 if __name__ == "__main__":

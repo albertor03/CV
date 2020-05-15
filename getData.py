@@ -49,9 +49,23 @@ class Data:
         return user.val()['admin']
 
     def get_sections(self):
-        sections = self.db.child("sections").get()
-        return sections.val()
+        menu = list()
+        sections = list()
+        list_menu = self.db.child("menu").get()
+
+        for item in list_menu.val():
+            menu.append(item['name'])
+
+        for item in menu:
+            section = self.db.child("sections").child(item).get()
+            sections += section.val()
+
+        return sections
 
     def get_section(self, section):
-        sections = self.db.child(section).get()
+        sections = self.db.child('sections').child(section).get()
         return sections.val()
+
+    def get_values(self, section):
+        values = self.db.child(section).get()
+        return values.val()
