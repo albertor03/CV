@@ -1,13 +1,17 @@
 <div class="container-fluid">
+    {% if message %}
     <div class="row">
         {% include "admin/dashboard/message.html" %}
     </div>
-
+    {% endif %}
+    {% if breadcrumbs %}
     <div class="row">
         {% include "admin/dashboard/breadcrumb.html" %}
     </div>
-    
+    {% endif %}
+    {% if sections %}
     <div class="row">
         {% include "admin/dashboard/sections.html" %}
     </div>
+    {% endif %}
 </div>
