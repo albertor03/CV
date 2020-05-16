@@ -7,10 +7,10 @@
             </div>
         </li>
         {% for item in value %}
-        <li class="list-group-item text-capitalize">{{ item['title'] }}  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
+        <a href="#" class="list-group-item list-group-item-action text-capitalize text-dark">{{ item['title'] }}  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </a>
         {% endfor %}
     </ul>
 </div>
 <div class="col-7">
-    {% include "admin/dashboard/sections/forms/education.html" %}
+    {% include "admin/dashboard/sections/forms/form.html" %}
 </div>

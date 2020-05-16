@@ -1,0 +1,24 @@
+{% macro render_input(title, id, placeholder, type="text") %}
+<div class="form-group">
+    <label class="text-capitalize">{{ title }}</label>
+    <input type="{{ text }}" class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}">
+</div>
+{% endmacro %}
+
+{% macro render_row_input(title1, id1, placeholder1, title2, id2, placeholder2, type1="text", type2="text") %}
+<div class="form-row">
+    <div class="form-group col-6">
+        <label>{{title1}}</label>
+        <input type="{{type1}}" class="form-control" id="{{id1}}" placeholder="{{placeholder1}}">
+    </div>
+    <div class="form-group col-6">
+        <label>{{title2}}</label>
+        <input type="{{type2}}" class="form-control" id="{{id2}}" placeholder="{{placeholder2}}">
+    </div>
+</div>
+{% endmacro %}
+
+{% macro render_range(title, id) %}
+<label for="customRange3">{{ title }}</label>
+<input type="range" class="custom-range" min="0" max="5" step="1" id="{{ id }}">
+{% endmacro %}
