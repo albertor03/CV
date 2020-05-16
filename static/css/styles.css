@@ -311,3 +311,30 @@ body{
     background: #010a12;
     border-radius: 50%;
 }
+/* end section panel */
+
+/* form section */
+.form{
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+}
+#actionButton i{
+    font-size: 12px;
+    margin: 0 2px;
+    padding: 4px;
+    border-radius: 50%;
+    border: 2px solid #37474f !important;
+}
+#actionButton i.fa-plus{
+    background-color: #37474f;
+    color: white;
+}
+#actionButton i.fa-plus:hover{
+    background-color: #546e7a;
+    border: 2px solid #546e7a !important;
+}
+#actionButton i.fa-minus:hover{
+    color: #000;
+    border: 2px solid #000 !important;
+}

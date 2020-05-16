@@ -1,0 +1,16 @@
+<div class="col-5">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div id="actionButton" class="float-right">
+                <i id="addEducation" role="button" class="fas fa-plus"></i>
+                <i role="button" class="fas fa-minus"></i>
+            </div>
+        </li>
+        {% for item in value %}
+        <li class="list-group-item text-capitalize">{{ item['title'] }}  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="col-7">
+    {% include "admin/dashboard/sections/forms/education.html" %}
+</div>

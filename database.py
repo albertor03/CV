@@ -21,41 +21,36 @@ p = '12345678'
 
 hashed_pass = generate_password_hash(p, method="sha256")
 
-"""d = {
-    "professional-summary": [{
-        "id": "professional-summary",
-        "section": "professional summary",
-        "icon": "fas fa-user-alt"
-    }],
-    "employment-history": [{
-        "id": "employment-history",
-        "section": "employment history",
-        "icon": "fas fa-briefcase"
-    }],
-    "education": [{
-        "id": "education",
-        "section":  "education",
-        "icon": "fas fa-user-graduate"
-    }],
-    "courses-certifications": [{
-        "id": "courses-certifications",
-        "section":  "courses & certifications",
-        "icon": "fas fa-certificate"
-    }],
-    "skills": [{
-        "id": "skills",
-        "section":  "skills",
-        "icon": "fas fa-user-alt"
-    }],
-    "configurations": [{
-        "id": "configurations",
-        "section":  "configurations",
-        "icon": "fas fa-cog"
-    }]
-}
-db.child('sections').set(d)
+d = [
+    {
+      "id": 1,
+      "level": "25%",
+      "title": "skill title #1"
+    },
+    {
+      "id": 2,
+      "level": "50%",
+      "title": "skill title #2"
+    },
+    {
+      "id": 3,
+      "level": "75%",
+      "title": "skill title #3"
+    },
+    {
+      "id": 4,
+      "level": "100%",
+      "title": "skill title #4"
+    },
+    {
+      "id": 5,
+      "level": "95%",
+      "title": "skill title #5"
+    }
+]
+db.child('professional-summary').set(d)
 
-menu = [
+"""menu = [
     {
         "name": "professional-summary"
     },
@@ -74,8 +69,7 @@ menu = [
     {
         "name": "configurations"
     }
-]"""
-
+]
 
 
 users = db.child("menu").get()
@@ -89,4 +83,4 @@ for item in menu:
     sections = db.child('sections').child(item).get()
     section += sections.val()
 
-print(section)
+print(section)"""
