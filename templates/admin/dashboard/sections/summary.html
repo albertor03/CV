@@ -1,0 +1,14 @@
+{% from "macro/base.html" import render_buttons %}
+
+<div class="col-12">
+    <div class="form">
+        <form action="">
+            <div class="form-group">
+                <label>Profesional Summary</label>
+                <textarea class="form-control" id="summary" rows="8">{{ value[0]['summary'] }}</textarea>
+            </div>
+            <hr>
+            {{ render_buttons("Clear", "Submit") }}
+        </form>    
+    </div>
+</div>
