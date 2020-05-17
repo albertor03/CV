@@ -1,16 +1,25 @@
 <div class="col-5">
     <ul class="list-group">
-        <li class="list-group-item">
-            <div id="actionButton" class="float-right">
-                <i id="addEducation" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
-                <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-            </div>
-        </li>
-        {% for item in value %}
-        <a href="#" class="list-group-item list-group-item-action text-capitalize text-dark">{{ item['title'] }}  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </a>
-        {% endfor %}
+        {% if breadcrumbs[-1:][0]['text'] == 'configurations' %}
+        <li id="editInfo" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> Information  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
+        <li id="editPass" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> Information  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
+        {% else %}
+            <li class="list-group-item">
+                <div id="actionButton" class="float-right">
+                    <i id="addItem" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
+                    <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+                </div>
+            </li>
+            {% for item in value %}
+            <a href="#{{ item['id'] }}" class="list-group-item list-group-item-action text-capitalize text-dark"> {{ item['title'] }}  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </a>
+            {% endfor %}
+        {% endif %}
     </ul>
 </div>
 <div class="col-7">
+    {% if breadcrumbs[-1:][0]['text'] == 'configurations' %}
+    {% include "admin/dashboard/sections/forms/config.html" %}
+    {% else %}
     {% include "admin/dashboard/sections/forms/form.html" %}
+    {% endif %}
 </div>

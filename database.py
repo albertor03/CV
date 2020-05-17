@@ -23,32 +23,22 @@ hashed_pass = generate_password_hash(p, method="sha256")
 
 d = [
     {
+      "address": "Quito, Ecuador",
+      "cell-phone": [{
+        "number": "+593 96 273 7459",
+        "url": "https://api.whatsapp.com/send?phone=593962737459&text=Hola%20te%20contacto%20desde%20tu%20sitio%20web,%20quisiera%20hacerte%20una%20consulta."
+      }],
+      "email": "alberto.zapata.orta@gmail.com",
+      "first-name": "Alberto Jose",
+      "github": "https://www.github.com/albertor03/",
       "id": 1,
-      "level": "25%",
-      "title": "skill title #1"
-    },
-    {
-      "id": 2,
-      "level": "50%",
-      "title": "skill title #2"
-    },
-    {
-      "id": 3,
-      "level": "75%",
-      "title": "skill title #3"
-    },
-    {
-      "id": 4,
-      "level": "100%",
-      "title": "skill title #4"
-    },
-    {
-      "id": 5,
-      "level": "95%",
-      "title": "skill title #5"
+      "last-name": "Zapata Orta",
+      "linkedin": "https://www.linkedin.com/in/alberto-zapata-orta",
+      "skype" :"albertor03",
+      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a eros commodo, consectetur nibh faucibus, egestas orci. Curabitur tincidunt diam quam, nec sollicitudin magna pharetra sed. Vivamus accumsan egestas libero a finibus. Maecenas nec eros a orci tempor pretium et et nulla. Mauris sit amet enim in ligula tempor laoreet. Donec aliquam, sapien at eleifend laoreet, arcu tellus iaculis sem, tincidunt consectetur lacus mauris id odio. Fusce egestas nisl leo. Ut sagittis ante luctus nibh efficitur commodo. Sed sed mauris lorem. Aenean diam urna, sollicitudin at augue a, volutpat pulvinar neque. Vivamus facilisis tellus fringilla augue commodo luctus ut et augue. Sed convallis ipsum id dolor dignissim iaculis. Donec enim elit, viverra nec sollicitudin non, hendrerit ac massa."
     }
 ]
-db.child('professional-summary').set(d)
+db.child('info').set(d)
 
 """menu = [
     {

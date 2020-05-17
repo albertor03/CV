@@ -12,7 +12,7 @@ Breadcrumbs(app=app)
 
 # Data
 d = Data()
-info = d.get_data('https://cv-flask.firebaseio.com/info.json')
+info = d.get_values('info')
 employment = d.get_data('https://cv-flask.firebaseio.com/employment.json')
 
 # Variables
@@ -30,14 +30,14 @@ def index():
     course = d.get_data('https://cv-flask.firebaseio.com/course.json')
     skill = d.get_data('https://cv-flask.firebaseio.com/skills.json')
 
-    return render_template("index.html", info=info, employment=employment, last=last_employment,
+    return render_template("index.html", info=info[0], employment=employment, last=last_employment,
                            education=education, course=course, skill=skill, date=date)
 
 
 @app.route("/jobs")
 @app.route("/jobs/")
 def jobs():
-    return render_template("jobs.html", info=info, jobs=employment, date=date)
+    return render_template("jobs.html", info=info[0], jobs=employment, date=date)
 
 
 @app.route("/admin", methods=['GET', 'POST'])
@@ -101,7 +101,9 @@ def sections(section):
     menu = d.get_sections()
     name = d.get_section(section)
     values = d.get_values(name[0]['id'])
-    return render_template("/admin/dashboard/sections/admin_section.html", info=info, sections=menu, value=values, date=date)
+    return render_template("/admin/dashboard/sections/admin_section.html", info=info, sections=menu, value=values,
+                           date=date)
+
 
 
 if __name__ == "__main__":

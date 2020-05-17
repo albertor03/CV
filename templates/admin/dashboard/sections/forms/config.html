@@ -1,0 +1,32 @@
+{% from "macro/base.html" import render_input, render_row_input, render_buttons %}
+
+<div class="form d-none" id="configForm">
+    <form action="">
+        {{ render_row_input("First Name", "firstName", "First Name", "Last Name", "lastName", "Last Name", 
+            value[0]['first-name'], value[0]['last-name'] ) }}
+        <hr>
+        {{ render_row_input("Email", "email", "Email", "Address", "address", "City, Country", 
+        value[0]['email'], value[0]['address'], "email" ) }}
+        <hr>
+        {{ render_row_input("Cell Phone", "cellphone", "+COD XX XX XX", "Cell Phone Url", "cellPhoneUrl", "Cell Phone Url", 
+        value[0]['cell-phone'][0]['number'], value[0]['cell-phone'][0]['url'], "tel" ) }}
+        <hr>
+        {{ render_row_input("Skype", "skype", "Skype ID", "Github", "github", "Github Page", 
+        value[0]['skype'], value[0]['github'] ) }}
+        <hr>
+        {{ render_input("Linkedin", "linkedin", "Linkedin Url", value[0]['linkedin']) }}
+        <hr>
+        {{ render_buttons("Clear", "Submit") }}
+    </form>
+</div>
+<div class="form d-none" id="passForm">
+    <form action="">
+        {{ render_input("Current password", "current", "Current Password", type="password") }}
+        <hr>
+        {{ render_input("New password", "new", "New Password", type="password") }}
+        <hr>
+        {{ render_input("Confirm New Password", "confirm", "Confirm New Password", type="password") }}
+        <hr>
+        {{ render_buttons("Clear", "Update") }}
+    </form>
+</div>

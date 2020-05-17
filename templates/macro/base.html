@@ -1,19 +1,19 @@
-{% macro render_input(title, id, placeholder, type="text") %}
+{% macro render_input(title, id, placeholder, value='', type="text", required='required') %}
 <div class="form-group">
     <label class="text-capitalize">{{ title }}</label>
-    <input type="{{ text }}" class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}">
+    <input type="{{ text }}" value="{{ value }}" class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}" required='{{ required }}' >
 </div>
 {% endmacro %}
 
-{% macro render_row_input(title1, id1, placeholder1, title2, id2, placeholder2, type1="text", type2="text") %}
+{% macro render_row_input(title1, id1, placeholder1, title2, id2, placeholder2, value1="", value2="", type1="text", type2="text", required1='required', required2='required') %}
 <div class="form-row">
     <div class="form-group col-6">
         <label>{{title1}}</label>
-        <input type="{{type1}}" class="form-control" id="{{id1}}" placeholder="{{placeholder1}}">
+        <input type="{{type1}}" value="{{ value1 }}" class="form-control" id="{{id1}}" placeholder="{{placeholder1}}" required='{{ required }}' >
     </div>
     <div class="form-group col-6">
         <label>{{title2}}</label>
-        <input type="{{type2}}" class="form-control" id="{{id2}}" placeholder="{{placeholder2}}">
+        <input type="{{type2}}" value="{{ value2 }}" class="form-control" id="{{id2}}" placeholder="{{placeholder2}}" required='{{ required }}' >
     </div>
 </div>
 {% endmacro %}
@@ -21,4 +21,11 @@
 {% macro render_range(title, id) %}
 <label for="customRange3">{{ title }}</label>
 <input type="range" class="custom-range" min="0" max="5" step="1" id="{{ id }}">
+{% endmacro %}
+
+{% macro render_buttons(value1, value2, type1="reset", type2="submit") %}
+<div class="control-button">
+    <button type="{{ type1 }}" name="reset" class="btn btn-danger">{{ value1 }}</button>
+    <button type="{{ type2 }}" name="submit" class="btn btn-primary">{{ value2 }}</button>
+</div>
 {% endmacro %}

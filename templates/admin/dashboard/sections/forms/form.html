@@ -1,21 +1,17 @@
-{% from "macro/base.html" import render_input, render_row_input, render_range %}
+{% from "macro/base.html" import render_input, render_row_input, render_range, render_buttons %}
 
-<div class="form d-none" id="educationForm">
+<div class="form d-none" id="itemForm">
     <form>
         {% if breadcrumbs[-1:][0]['text'] == 'education' %}
         {{ render_input("degree title", "degreeTitle", "Degree Title") }}
         {{ render_input("Collage Name", "collageName", "Collage Name") }}
         {{ render_input("City Name", "cityName", "City Name") }}
-        {{ render_row_input("Start Date", "startDate", "Start Date", "End Date", "endDate", "End Date") }}
-        {% endif %}
-        
-        {% if breadcrumbs[-1:][0]['text'] == 'skills' %}
+        {{ render_row_input("Start Date", "startDate", "YYYY/MM", "End Date", "endDate", "YYYY/MM") }}
+        {% elif breadcrumbs[-1:][0]['text'] == 'skills' %}
         {{ render_input("Skill Title", "skillTitle", "Skill Titile") }}
         {{ render_range("Skill Level", "skillLevel") }}
         {% endif %}
-        <div class="control-button">
-            <button type="reset" class="btn btn-danger">Clear</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+        <hr>
+        {{ render_buttons("Clear", "Submit") }}
     </form>
 </div>

@@ -4,8 +4,12 @@
         {% include "admin/dashboard/breadcrumb.html" %}
     </div>
     {% endif %}
-    {% if value %}
-    <div class="row mt-4">
+    {% if breadcrumbs[-1:][0]['text'] == 'professional summary' %}
+    <div class="row my-4">
+        {% include "admin/dashboard/sections/summary.html" %}
+    </div>
+    {% elif value %}
+    <div class="row my-4">
         {% include "admin/dashboard/sections/info.html" %}
     </div>
     {% endif %}

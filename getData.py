@@ -67,5 +67,7 @@ class Data:
         return sections.val()
 
     def get_values(self, section):
+        if section == 'configurations' or section == 'professional-summary':
+            section = 'info'
         values = self.db.child(section).get()
         return values.val()

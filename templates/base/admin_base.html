@@ -2,7 +2,7 @@
 
 {% block html_attribs %} lang="en" {% endblock %}
 
-{% block title %} {{ info['first-name']}} {{info['last-name'] }} | Admin Panel {% endblock %}
+{% block title %} {{ info[0]['first-name']}} {{info[0]['last-name'] }} | Admin Panel {% endblock %}
 {% block styles %}
 {{super()}}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
