@@ -1,0 +1,19 @@
+{% from "macro/base.html" import render_input, render_row_input, render_buttons, render_textarea %}
+
+<div class="form d-none" id="sectionForm">
+    <form action="">
+        {{ render_input("Section Title", "sectionTitle", "New Section") }}
+        <hr>
+        {{ render_buttons("Clear", "Add") }}
+    </form>
+</div>
+<div class="form d-none" id="courseForm">
+    <form action="">
+        {{ render_input("Course Title", "courseTitle", "New Course") }}
+        {{ render_row_input("Acadame Name", "academyName", "Academy Name", "End Date", "endDate", "YYYY/MM") }}
+        {{ render_input("Url Certificate", "urlCertificate", "Url") }}
+        {{ render_textarea("Description", "decription") }}
+        <hr>
+        {{ render_buttons("Clear", "Add") }}
+    </form>
+</div>

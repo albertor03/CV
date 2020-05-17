@@ -1,8 +1,24 @@
 <div class="col-5">
     <ul class="list-group">
         {% if breadcrumbs[-1:][0]['text'] == 'configurations' %}
-        <li id="editInfo" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> information  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
-        <li id="editPass" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> change password  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
+            <li id="editInfo" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> information  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
+            <li id="editPass" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> change password  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
+        {% elif breadcrumbs[-1:][0]['text'] == 'courses & certifications' %}
+            <li class="list-group-item">
+                <div id="actionButton" class="float-right">
+                    <i id="addSection" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new section"></i>
+                    <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete section"></i>
+                </div>
+            </li>
+            {% for item in value %}
+            <li class="list-group-item text-capitalize">
+                {{ item['section'] }}
+                <div id="actionButton" class="float-right">
+                    <i id="addCourse" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new course"></i>
+                    <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete course"></i>
+                </div>
+            </li>
+            {% endfor %}
         {% else %}
             <li class="list-group-item">
                 <div id="actionButton" class="float-right">
@@ -19,6 +35,8 @@
 <div class="col-7">
     {% if breadcrumbs[-1:][0]['text'] == 'configurations' %}
     {% include "admin/dashboard/sections/forms/config.html" %}
+    {% elif breadcrumbs[-1:][0]['text'] == 'courses & certifications' %}
+    {% include "admin/dashboard/sections/forms/course.html" %}
     {% else %}
     {% include "admin/dashboard/sections/forms/form.html" %}
     {% endif %}

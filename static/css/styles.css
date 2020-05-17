@@ -220,6 +220,7 @@ body{
     border-left: 1px solid #000a12;
 }
 #btn-menu{
+    font-size: 24px;
     padding: 0.35rem .65rem !important;
     border: 1px solid #fff;
 }

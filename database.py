@@ -21,147 +21,132 @@ p = '12345678'
 
 hashed_pass = generate_password_hash(p, method="sha256")
 
-"""d = [
+d = [
     {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
+        "courses": [
+            {
+                "academy": "academy",
+                "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit "
+                               "finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla "
+                               "luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris "
+                               "hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh"
+                               " convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. "
+                               "Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer "
+                               "mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt "
+                               "massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi,"
+                               " eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
+                "end-date": "2000-01-01",
+                "id": "python-course-title-1",
+                "id-course": 1,
+                "title": "course title #1",
+                "url-certificate": "#"
+            }
+        ],
         "id": 1,
-        "title": "job title #1",
-        "start-date": "2000-01"
+        "section": "python"
     },
     {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
+        "courses": [
+            {
+                "academy": "academy",
+                "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit "
+                               "finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla "
+                               "luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris "
+                               "hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh "
+                               "convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. "
+                               "Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer "
+                               "mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt "
+                               "massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, "
+                               "eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
+                "end-date": "2000-01-01",
+                "id": "jenkins-course-title-1",
+                "id-course": 1,
+                "title": "course title #1",
+                "url-certificate": "#"
+            },
+            {
+                "academy": "academy",
+                "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit "
+                               "finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla "
+                               "luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris "
+                               "hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh "
+                               "convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. "
+                               "Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer "
+                               "mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt "
+                               "massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, "
+                               "eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
+                "end-date": "2000-01-01",
+                "id": "jenkins-course-title-2",
+                "id-course": 2,
+                "title": "course title #2",
+                "url-certificate": "#"
+            }
+        ],
         "id": 2,
-        "title": "job title #2",
-        "start-date": "2000-01"
+        "section": "jenkins"
     },
     {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
+        "courses": [
+            {
+                "academy": "academy",
+                "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit"
+                               " finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla "
+                               "luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris "
+                               "hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim "
+                               "nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. "
+                               "Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer "
+                               "mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt "
+                               "massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi,"
+                               " eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
+                "end-date": "2000-01-01",
+                "id": "angular-course-title-1",
+                "id-course": 1,
+                "title": "course title #1",
+                "url-certificate": "#"
+            },
+            {
+                "academy": "academy",
+                "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit"
+                               " finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla "
+                               "luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris "
+                               "hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim "
+                               "nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. "
+                               "Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer "
+                               "mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt "
+                               "massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi,"
+                               " eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
+                "end-date": "2000-01-01",
+                "id": "angular-course-title-2",
+                "id-course": 2,
+                "title": "course title #2",
+                "url-certificate": "#"
+            },
+            {
+                "academy": "academy",
+                "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit"
+                               " finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla "
+                               "luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris "
+                               "hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim "
+                               "nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. "
+                               "Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer "
+                               "mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt "
+                               "massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi,"
+                               " eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
+                "end-date": "2000-01-01",
+                "id": "angular-course-title-3",
+                "id-course": 3,
+                "title": "course title #3",
+                "url-certificate": "#"
+            }
+        ],
         "id": 3,
-        "title": "job title #3",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 4,
-        "title": "job title #4",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 5,
-        "title": "job title #5",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 6,
-        "title": "job title #6",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 7,
-        "title": "job title #7",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 8,
-        "title": "job title #8",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 9,
-        "title": "job title #9",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 10,
-        "title": "job title #10",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 11,
-        "title": "job title #11",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 12,
-        "title": "job title #12",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 13,
-        "title": "job title #13",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 14,
-        "title": "job title #14",
-        "start-date": "2000-01"
-    },
-    {
-        "city": "city name",
-        "description": "Aliquam malesuada turpis non cursus vulputate. Nam finibus nulla eu sapien suscipit finibus. Etiam id fringilla massa. Sed elementum rutrum sapien, eu gravida nulla luctus eget. Pellentesque sed mattis justo. Pellentesque nec eleifend leo. Mauris hendrerit s vulputate lectus, sit amet dapibus eros blandit vitae. Ut dignissim nibh convallis hendrerit pretium. Vivamus fringilla odio et interdum ullamcorper. Pellentesque ipsum elit, porttitor vel posuere id, semper sit amet diam. Integer mauris orci, laoreet at viverra aliquet, malesuada non justo. Aliquam id tincidunt massa. Nulla aliquam, felis sit amet tincidunt consectetur, lectus libero mollis mi, eu euismod erat nulla in lacus. Donec hendrerit luctus lorem eget elementum.",
-        "employer": "employer name",
-        "end-date": "2001-01",
-        "id": 15,
-        "title": "job title #15",
-        "start-date": "2000-01"
+        "section": "angular"
     }
 ]
 
-db.child('employment-history').set(d)
+db.child('courses-certifications').set(d)
 
-menu = [
+"""menu = [
     {
         "name": "professional-summary"
     },
@@ -180,7 +165,7 @@ menu = [
     {
         "name": "configurations"
     }
-]"""
+]
 
 
 users = db.child("employment-history").get()
@@ -199,8 +184,8 @@ for item in users.val():
         menu.clear()
 
 
-"""for item in menu:
+for item in menu:
     sections = db.child('sections').child(item).get()
-    section += sections.val()"""
+    section += sections.val()
 
-print(employment)
+print(employment)"""
