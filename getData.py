@@ -1,5 +1,3 @@
-import json
-import requests
 import pyrebase
 
 
@@ -21,27 +19,36 @@ class Data:
         firebase = pyrebase.initialize_app(firebase_config)
         self.db = firebase.database()
 
-    @staticmethod
-    def get_data(path):
-        x = requests.get(path).text
+    def get_data(self, section):
+        data = self.db.child(section).get()
 
-        data = json.loads(x.replace("null,", ""))
+        return data.val()
 
-        return data
+    def get_employments(self):
+        i = 0
+        employments = list()
+        employment_list = list()
 
-    def get_last_employment(self, path):
-        data = self.get_data(path)
+        data = self.db.child('employment-history').get()
+
+        for item in data.val():
+            i += 1
+            employments.append(item)
+            if i == 5:
+                employment_list.append(list(employments))
+                employments.clear()
+                i = 0
+
+        return employment_list
+    
+    def get_last_employer(self):
         last = list()
-        employment = list()
+        data = self.get_employments()
 
-        for items in data:
-            for item in items['section']:
-                last += item.values()
-
-        employment.append(last[-2])
-        employment.append(last[-5])
-
-        return employment
+        last.append(data[-1:][0][-1:][0]['title'])
+        last.append(data[-1:][0][-1:][0]['employer'])
+        
+        return last
 
     def get_user(self):
         user = self.db.child("users").get()
@@ -69,5 +76,7 @@ class Data:
     def get_values(self, section):
         if section == 'configurations' or section == 'professional-summary':
             section = 'info'
-        values = self.db.child(section).get()
-        return values.val()
+
+        values = self.get_data(section)
+        return values
+

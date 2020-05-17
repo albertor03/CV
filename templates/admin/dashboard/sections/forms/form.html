@@ -1,8 +1,13 @@
-{% from "macro/base.html" import render_input, render_row_input, render_range, render_buttons %}
+{% from "macro/base.html" import render_input, render_row_input, render_range, render_buttons, render_textarea %}
 
 <div class="form d-none" id="itemForm">
     <form>
-        {% if breadcrumbs[-1:][0]['text'] == 'education' %}
+        {% if breadcrumbs[-1:][0]['text'] == 'employment history' %}
+        {{ render_input("job title", "jobTitle", "Job Title") }}
+        {{ render_row_input("Employer Name", "employerName", "Collage Name", "City Name", "cityName", "City Name") }}
+        {{ render_row_input("Start Date", "startDate", "YYYY/MM", "End Date", "endDate", "YYYY/MM") }}
+        {{ render_textarea("Description", "description", "") }}
+        {% elif breadcrumbs[-1:][0]['text'] == 'education' %}
         {{ render_input("degree title", "degreeTitle", "Degree Title") }}
         {{ render_input("Collage Name", "collageName", "Collage Name") }}
         {{ render_input("City Name", "cityName", "City Name") }}

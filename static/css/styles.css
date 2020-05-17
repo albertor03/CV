@@ -208,16 +208,25 @@ body{
     padding: 0 !important;
     color: #fff;
     font-weight: 700;
-    font-size: 38px;
+    font-size: 30px;
 }
 .navbar-header a:hover{
     color: #fff;
 }
-#btn-signout, #btn-home{
+#btn-signout, #btn-home, #btn-index{
     padding: 0 .65rem !important;
-    margin: 0;
+    margin: 0.35rem 0;
     float: right;
     border-left: 1px solid #000a12;
+}
+#btn-menu{
+    padding: 0.35rem .65rem !important;
+    border: 1px solid #fff;
+}
+#btn-menu:hover{
+    background-color: #fff;
+    color: #263238 !important;
+    border: 1px solid #263238;
 }
 /* end navbar dashboard */
 

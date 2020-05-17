@@ -13,7 +13,7 @@ Breadcrumbs(app=app)
 # Data
 d = Data()
 info = d.get_values('info')
-employment = d.get_data('https://cv-flask.firebaseio.com/employment.json')
+employment = d.get_employments()
 
 # Variables
 date = datetime.datetime.now().strftime("%Y")
@@ -24,11 +24,10 @@ app.secret_key = '12345'
 # Routes
 @app.route("/")
 def index():
-
-    last_employment = d.get_last_employment('https://cv-flask.firebaseio.com/employment.json')
-    education = d.get_data('https://cv-flask.firebaseio.com/education.json')
-    course = d.get_data('https://cv-flask.firebaseio.com/course.json')
-    skill = d.get_data('https://cv-flask.firebaseio.com/skills.json')
+    last_employment = d.get_last_employer()
+    education = d.get_data('education')
+    course = d.get_data('course')
+    skill = d.get_data('skills')
 
     return render_template("index.html", info=info[0], employment=employment, last=last_employment,
                            education=education, course=course, skill=skill, date=date)
@@ -103,7 +102,6 @@ def sections(section):
     values = d.get_values(name[0]['id'])
     return render_template("/admin/dashboard/sections/admin_section.html", info=info, sections=menu, value=values,
                            date=date)
-
 
 
 if __name__ == "__main__":

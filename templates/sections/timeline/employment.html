@@ -6,12 +6,10 @@
             <div class="timeline-div my-3 row justify-content-center">
                 {% for items in employment %}
                 <div class="col-6 mt-2">
-                    <ul class="list-group list-group-flush" style="border-radius: 50px !important;">
-                        {% for item in items['section'] %}
-                        <a href="{{ url_for('jobs') }}#{{ item['id'] }}" class="text-capitalize text-reset text-decoration-none border-bottom border-black">
-                            <li style="background-color: #f5f5f6 !important;;" class="list-group-item list-group-item-action">
-                                {{ item['job-title'] }} <i class="fas fa-angle-right text-secondary" style="float: right;"></i>
-                            </li>
+                    <ul class="list-group list-group-flush">
+                        {% for item in items %}
+                        <a href="{{ url_for('jobs') }}#{{ item['id'] }}" class="list-group-item list-group-item-action text-capitalize text-reset text-decoration-none ">
+                            {{ item['title'] }} <i class="fas fa-angle-right text-secondary" style="float: right;"></i>
                         </a>
                         {% endfor %}
                     </ul>
