@@ -26,7 +26,7 @@ app.secret_key = '12345'
 def index():
     last_employment = d.get_last_employer()
     education = d.get_data('education')
-    course = d.get_data('course')
+    course = d.get_data('courses-certifications')
     skill = d.get_data('skills')
 
     return render_template("index.html", info=info[0], employment=employment, last=last_employment,

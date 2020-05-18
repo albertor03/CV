@@ -1,7 +1,7 @@
 {% macro render_input(title, id, placeholder, value='', type="text", required='required') %}
 <div class="form-group">
     <label class="text-capitalize">{{ title }}</label>
-    <input type="{{ text }}" value="{{ value }}" class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}" required='{{ required }}' >
+    <input type="{{ type }}" value="{{ value }}" class="form-control" id="{{ name }}" name="{{ name }}" placeholder="{{ placeholder }}" required='{{ required }}' >
 </div>
 {% endmacro %}
 

@@ -23,9 +23,8 @@
     <form action="">
         {{ render_input("Current password", "current", "Current Password", type="password") }}
         <hr>
-        {{ render_input("New password", "new", "New Password", type="password") }}
-        <hr>
-        {{ render_input("Confirm New Password", "confirm", "Confirm New Password", type="password") }}
+        {{ render_row_input("New password", "new", "New Password", "Confirm Password", "confirm", "Confirm Password", 
+        type1="password", type2="password") }}
         <hr>
         {{ render_buttons("Clear", "Update") }}
     </form>
