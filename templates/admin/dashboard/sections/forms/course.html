@@ -7,8 +7,25 @@
         {{ render_buttons("Clear", "Add") }}
     </form>
 </div>
-<div class="form d-none" id="courseForm">
+<div class="form d-none" id="itemForm">
     <form action="">
+        <div class="form-row align-items-end">
+            <div class="col-9">
+                <label>Sections</label>
+                <select class="form-control text-capitalize" id="sectionSelect">
+                    {% for item in value %}
+                    <option value="{{ item['id'] }}">{{ item['section'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-3">
+                <div id="actionButton" class="float-right mb-2">
+                    <i id="addSection" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
+                    <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+                </div>
+            </div>
+        </div>
+        <hr>
         {{ render_input("Course Title", "courseTitle", "New Course") }}
         {{ render_row_input("Acadame Name", "academyName", "Academy Name", "End Date", "endDate", "YYYY/MM") }}
         {{ render_input("Url Certificate", "urlCertificate", "Url") }}

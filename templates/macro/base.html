@@ -32,7 +32,7 @@
 
 {% macro render_buttons(value1, value2, type1="reset", type2="submit") %}
 <div class="control-button">
-    <button type="{{ type1 }}" name="reset" class="btn btn-danger">{{ value1 }}</button>
-    <button type="{{ type2 }}" name="submit" class="btn btn-primary">{{ value2 }}</button>
+    <button type="{{ type1 }}" name="reset" class="btn bd-light">{{ value1 }}</button>
+    <button type="{{ type2 }}" name="submit" class="btn bd-dark">{{ value2 }}</button>
 </div>
 {% endmacro %}

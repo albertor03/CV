@@ -1,11 +1,14 @@
 $(document).ready(function () {
     $('#addItem').on('click', function () {
         $('#itemForm').toggleClass('d-none');
+        if (! $('#sectionForm').hasClass('d-none')){
+            $('#sectionForm').toggleClass('d-none');
+        }
     });
     $('#addSection').on('click', function () {
         $('#sectionForm').toggleClass('d-none');
-        if (! $('#courseForm').hasClass('d-none')){
-            $('#courseForm').toggleClass('d-none');
+        if (! $('#itemForm').hasClass('d-none')){
+            $('#itemForm').toggleClass('d-none');
         }
     });
     $('#addCourse').on('click', function () {

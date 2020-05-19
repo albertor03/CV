@@ -1,27 +1,23 @@
 <div class="col-5">
-    <ul class="list-group">
+    <ul class="list-group" id="accordionCourse">
         {% if breadcrumbs[-1:][0]['text'] == 'configurations' %}
             <li id="editInfo" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> information  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
             <li id="editPass" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> change password  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
         {% elif breadcrumbs[-1:][0]['text'] == 'courses & certifications' %}
             <li class="list-group-item">
                 <div id="actionButton" class="float-right">
-                    <i id="addSection" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new section"></i>
-                    <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete section"></i>
+                    <i id="addItem" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
+                    <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
                 </div>
             </li>
             {% for items in value %}
-            <li class="list-group-item text-capitalize" id="accordionCourse{{ items['section'] }}">
+            <li class="list-group-item text-capitalize" data-toggle="collapse" href="#{{ items['section'] }}Section" role="button">
                 <div id="{{ items['section'] }}H">
-                    <span data-toggle="collapse" href="#{{ items['section'] }}Section" role="button">
-                        {{ items['section'] }} <span class="badge badge-dark">{{ items['courses']|length }}</span>
-                    </span> 
-                    <div id="actionButton" class="float-right">
-                        <i id="addCourse" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new course"></i>
-                        <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete course"></i>
-                    </div>
+                    <span>
+                        {{ items['section'] }} <span class="badge badge-dark float-right">{{ items['courses']|length }}</span>
+                    </span>
                 </div>
-                <div id="{{ items['section'] }}Section" class="collapse container-fluid border-top {{ 'border-bottom' if loop.last }} mt-3" aria-labelledby="{{ items['section'] }}H" data-parent="#accordionCourse{{ items['section'] }}">
+                <div id="{{ items['section'] }}Section" class="collapse container-fluid border-top {{ 'border-bottom' if loop.last }} mt-3" aria-labelledby="{{ items['section'] }}H" data-parent="#accordionCourse">
                     <ul class="list-group list-group-flush">
                         {% for item in items['courses'] %}
                         <li class="list-group-item">{{ item['title'] }}</li>
