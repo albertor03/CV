@@ -186,6 +186,9 @@ button.bd-light{
 /* end top button */
 
 /* admin panel */
+#login-panel{
+    height: 79.2vh;
+}
 .btn-app{
     background: #263238 !important;
     color: white;

@@ -1,6 +1,5 @@
 <div class="container-fluid">
     {% with messages = get_flashed_messages(with_categories=True) %}
-    {% if messages %}
     {% for category, message in messages %}
     <div class="alert alert-{{ category }} mt-2" role="alert">
         <span class="" style="font-size: 14px;" >{{ message }}</span>
@@ -9,6 +8,5 @@
         </button>
     </div>
     {% endfor %}
-    {% endif %}
     {% endwith %}
 </div>
