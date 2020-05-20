@@ -1,11 +1,8 @@
-{% from "macro/base.html" import render_buttons, render_textarea %}
-
 <div class="col-12">
+    <div class="row">
+        {% include "admin/dashboard/message.html" %}
+    </div>
     <div class="form">
-        <form action="">
-            {{ render_textarea("Profesional Summary", "summary", value[0]['summary'] ) }}
-            <hr>
-            {{ render_buttons("Clear", "Update") }}
-        </form>    
+        {% include "admin/dashboard/sections/forms/summary.html" %}
     </div>
 </div>

@@ -1,0 +1,7 @@
+{% from "macro/base.html" import render_input, render_row_input, render_range, render_buttons, render_textarea %}
+
+<form method="post" action="{{ url_for('edit_summary') }}" >
+    {{ render_textarea("Professional Summary", "summary", value[0]['summary'] ) }}
+    <hr>
+    {{ render_buttons("Clear", "Update") }}
+</form>

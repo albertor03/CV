@@ -80,3 +80,8 @@ class Data:
         values = self.get_data(section)
         return values
 
+    def edit_summary(self, summary):
+        data = self.get_values('professional-summary')
+
+        data[0]['summary'] = summary
+        self.db.child('info').set(data)
