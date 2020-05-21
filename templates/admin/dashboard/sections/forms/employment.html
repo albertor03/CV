@@ -1,0 +1,12 @@
+{% from "macro/base.html" import render_input, render_row_input, render_buttons, render_textarea %}
+
+<div class="form d-none" id="itemForm">
+    <form action="{{ url_for('add_employment') }}" method="post">
+        {{ render_input("job title", "jobTitle", "Job Title") }}
+        {{ render_row_input("Employer Name", "employerName", "Collage Name", "City Name", "cityName", "City Name") }}
+        {{ render_row_input("Start Date", "startDate", "YYYY/MM", "End Date", "endDate", "YYYY/MM") }}
+        {{ render_textarea("Description", "description", "") }}
+        <hr>
+        {{ render_buttons("Clear", "Submit") }}
+    </form>
+</div>

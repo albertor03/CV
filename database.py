@@ -20,8 +20,11 @@ user = 'admin'
 p = '12345678'
 
 hashed_pass = generate_password_hash(p, method="sha256")
-
-d = [
+d = {
+    "user": user,
+    "password": hashed_pass
+}
+"""d = [
     {
         "courses": [
             {
@@ -146,7 +149,7 @@ d = [
 
 db.child('courses-certifications').set(d)
 
-"""menu = [
+menu = [
     {
         "name": "professional-summary"
     },
@@ -165,27 +168,14 @@ db.child('courses-certifications').set(d)
     {
         "name": "configurations"
     }
-]
+]"""
 
 
-users = db.child("employment-history").get()
-menu = list()
-employment = list()
-i = 0
-li = 0
+section = db.child("sections").get()
+for items in section.val():
+    id = "info"
+    if items['id'] == id:
+        info = items
 
-for item in users.val():
-    i += 1
-    print(item)
-    menu.append(item)
-    restro = i % 5
-    if restro == 0:
-        employment.append(list(menu))
-        menu.clear()
+print(info)
 
-
-for item in menu:
-    sections = db.child('sections').child(item).get()
-    section += sections.val()
-
-print(employment)"""

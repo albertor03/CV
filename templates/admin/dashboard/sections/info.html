@@ -1,7 +1,6 @@
 <div class="col-5">
     <ul class="list-group" id="accordionCourse">
-        {% if breadcrumbs[-1:][0]['text'] == 'configurations' %}
-            <li id="editInfo" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> information  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
+        {% if breadcrumbs[-1:][0]['text'] == 'settings' %}
             <li id="editPass" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> change password  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
         {% elif breadcrumbs[-1:][0]['text'] == 'courses & certifications' %}
             <li class="list-group-item">
@@ -40,8 +39,10 @@
     </ul>
 </div>
 <div class="col-7">
-    {% if breadcrumbs[-1:][0]['text'] == 'configurations' %}
+    {% if breadcrumbs[-1:][0]['text'] == 'settings' %}
     {% include "admin/dashboard/sections/forms/config.html" %}
+    {% elif breadcrumbs[-1:][0]['text'] == 'employment history' %}
+    {% include "admin/dashboard/sections/forms/employment.html" %}
     {% elif breadcrumbs[-1:][0]['text'] == 'courses & certifications' %}
     {% include "admin/dashboard/sections/forms/course.html" %}
     {% else %}

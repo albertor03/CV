@@ -8,7 +8,11 @@
     <div class="row">
         {% include "admin/dashboard/sections/summary.html" %}
     </div>
-    {% elif value %}
+    {% elif breadcrumbs[-1:][0]['text'] == 'information' %}
+    <div class="row">
+        {% include "admin/dashboard/sections/forms/info.html" %}
+    </div>
+    {% elif value|length > 0 or breadcrumbs[-1:][0]['text'] == 'settings' %}
     <div class="row my-4">
         {% include "admin/dashboard/sections/info.html" %}
     </div>

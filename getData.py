@@ -1,3 +1,5 @@
+from pkgutil import get_data
+
 import pyrebase
 
 
@@ -23,6 +25,16 @@ class Data:
         data = self.db.child(section).get()
 
         return data.val()
+
+    def get_breadcrumbs(self, breadcrumb):
+        breadcrumbs = list()
+        data = self.get_data('sections')
+
+        for item in data:
+            if item['id'] == breadcrumb:
+                breadcrumbs = item
+
+        return breadcrumbs
 
     def get_employments(self):
         i = 0
@@ -53,35 +65,42 @@ class Data:
     def get_user(self):
         user = self.db.child("users").get()
 
-        return user.val()['admin']
+        return user.val()
 
     def get_sections(self):
         menu = list()
         sections = list()
-        list_menu = self.db.child("menu").get()
+        list_menu = self.db.child("sections").get()
 
         for item in list_menu.val():
             menu.append(item['name'])
 
         for item in menu:
             section = self.db.child("sections").child(item).get()
-            sections += section.val()
 
-        return sections
-
-    def get_section(self, section):
-        sections = self.db.child('sections').child(section).get()
-        return sections.val()
-
-    def get_values(self, section):
-        if section == 'configurations' or section == 'professional-summary':
-            section = 'info'
-
-        values = self.get_data(section)
-        return values
+        return list_menu.val()
 
     def edit_summary(self, summary):
-        data = self.get_values('professional-summary')
+        data = self.get_data('professional-summary')
 
         data[0]['summary'] = summary
-        self.db.child('info').set(data)
+        self.db.child('professional-summary').set(data)
+
+    def create_employment(self, title, employer, city, start, end, description):
+        section = 'employment-history'
+        employments = self.get_data(section)
+
+        data = [
+            {
+                "id": len(employments),
+                "title": title,
+                "employer": employer,
+                "city": city,
+                "start-date": start,
+                "end-date": end,
+                "description": description
+            }
+        ]
+
+        new_data = employments.append(data)
+        self.db.child(section).set(new_data)

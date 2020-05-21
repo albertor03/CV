@@ -5,7 +5,7 @@
     <li>
       <a href="{{ url_for('sections', section=item['id']) }}">
         <i class="icon-menu  {{ item['icon'] }}"></i>
-        <span class="text-uppercase">{{ item['section'] }}</span>
+        <span class="text-uppercase">{{ item['name'] }}</span>
       </a>
     </li>
     {% endfor %}

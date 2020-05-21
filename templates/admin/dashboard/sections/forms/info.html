@@ -1,0 +1,22 @@
+{% from "macro/base.html" import render_input, render_row_input, render_buttons %}
+<div class="container-fluid my-3">
+    <div class="form" id="configForm">
+        <form action="">
+            {{ render_row_input("First Name", "firstName", "First Name", "Last Name", "lastName", "Last Name",
+                value[0]['first-name'], value[0]['last-name'] ) }}
+            <hr>
+            {{ render_row_input("Email", "email", "Email", "Address", "address", "City, Country",
+            value[0]['email'], value[0]['address'], "email" ) }}
+            <hr>
+            {{ render_row_input("Cell Phone", "cellPhone", "Number", "Url Cell Phone", "urlCellPhone", "Url",
+            value[0]['cell-phone']['mobile'], value[0]['cell-phone']['url'] ) }}
+            <hr>
+            {{ render_row_input("Skype", "skype", "Skype ID", "Github", "github", "Github Page",
+            value[0]['skype'], value[0]['github'] ) }}
+            <hr>
+            {{ render_input("Linkedin", "linkedin", "Linkedin Url", value[0]['linkedin']) }}
+            <hr>
+            {{ render_buttons("Clear", "Submit") }}
+        </form>
+    </div>
+</div>
