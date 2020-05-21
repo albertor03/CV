@@ -133,6 +133,9 @@ def add_employment():
         d.create_employment(request.form['jobTitle'], request.form['employerName'], request.form['cityName'],
                             request.form['startDate'], request.form['endDate'], request.form['description'])
 
+        flash("The " + request.form['jobTitle'] + " was added", "success")
+        return redirect(url_for('sections', section='employment-history'))
+
 
 if __name__ == "__main__":
     app.run(debug=True)

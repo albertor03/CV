@@ -170,12 +170,19 @@ menu = [
     }
 ]"""
 
+old = db.child("employment-history").get()
 
-section = db.child("sections").get()
-for items in section.val():
-    id = "info"
-    if items['id'] == id:
-        info = items
+data = {
+    "city": "city",
+    "description": "description",
+    "employer": "employer",
+    "end-date": "end",
+    "id": len(old.val()) + 1,
+    "start-date": "start",
+    "title": "title"
+}
+new_data = list()
+old_data = old.val()
+old_data.append(data)
 
-print(info)
-
+print(old_data)

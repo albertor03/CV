@@ -90,17 +90,15 @@ class Data:
         section = 'employment-history'
         employments = self.get_data(section)
 
-        data = [
-            {
-                "id": len(employments),
-                "title": title,
-                "employer": employer,
-                "city": city,
-                "start-date": start,
-                "end-date": end,
-                "description": description
-            }
-        ]
+        data = {
+            "city": city,
+            "description": description,
+            "employer": employer,
+            "end-date": end,
+            "id": len(employments) + 1,
+            "start-date": start,
+            "title": title
+        }
 
-        new_data = employments.append(data)
-        self.db.child(section).set(new_data)
+        employments.append(data)
+        self.db.child(section).set(employments)
