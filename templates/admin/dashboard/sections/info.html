@@ -1,51 +1,52 @@
-<div class="col-5">
+<div class="col-sm-5">
+    {% if breadcrumbs[-1:][0]['text'] == 'employment history' or breadcrumbs[-1:][0]['text'] == 'education' or breadcrumbs[-1:][0]['text'] == 'skills' %} {% if value|length > 0 %}
+    <div id="itemDiv" class="item-div rounded-lg activate">
+        <div class="item-head">
+            <div id="actionButton" class="float-right">
+                <i id="addItem" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
+                <i id="deleteItem" role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+            </div>
+        </div>
+        {% for item in value %}
+        <div class="item-list">
+            <div id="trashDiv" class="trash-btn" role="button">
+                <a href="#{{ item['id'] }}" class="fas fa-trash"></a>
+            </div>
+            <div class="item-text text-capitalize" role="button">{{ item['title'] }}</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %} {% else %}
     <ul class="list-group" id="accordionCourse">
         {% if breadcrumbs[-1:][0]['text'] == 'settings' %}
-            <li id="editPass" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> change password  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
+        <li id="editPass" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> change password <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
         {% elif breadcrumbs[-1:][0]['text'] == 'courses & certifications' %}
-            <li class="list-group-item">
-                <div id="actionButton" class="float-right">
-                    <i id="addItem" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
-                    <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-                </div>
-            </li>
-            {% for items in value %}
-            <li class="list-group-item text-capitalize" data-toggle="collapse" href="#{{ items['section'] }}Section" role="button">
-                <div id="{{ items['section'] }}H">
-                    <span>
+        <li class="list-group-item">
+            <div id="actionButton" class="float-right">
+                <i id="addItem" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
+                <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+            </div>
+        </li>
+        {% for items in value %}
+        <li class="list-group-item text-capitalize" data-toggle="collapse" href="#{{ items['section'] }}Section" role="button">
+            <div id="{{ items['section'] }}H">
+                <span>
                         {{ items['section'] }} <span class="badge badge-dark float-right">{{ items['courses']|length }}</span>
-                    </span>
-                </div>
-                <div id="{{ items['section'] }}Section" class="collapse container-fluid border-top {{ 'border-bottom' if loop.last }} mt-3" aria-labelledby="{{ items['section'] }}H" data-parent="#accordionCourse">
-                    <ul class="list-group list-group-flush">
-                        {% for item in items['courses'] %}
-                        <li class="list-group-item">{{ item['title'] }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </li>
-            {% endfor %}
-        {% else %}
-            <li class="list-group-item">
-                <div id="actionButton" class="float-right">
-                    <i id="addItem" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
-                    <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
-                </div>
-            </li>
-            {% for item in value %}
-            <a href="#{{ item['id'] }}" class="list-group-item list-group-item-action text-capitalize text-dark"> {{ item['title'] }}  <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </a>
-            {% endfor %}
-        {% endif %}
+                </span>
+            </div>
+            <div id="{{ items['section'] }}Section" class="collapse container-fluid border-top {{ 'border-bottom' if loop.last }} mt-3" aria-labelledby="{{ items['section'] }}H" data-parent="#accordionCourse">
+                <ul class="list-group list-group-flush">
+                    {% for item in items['courses'] %}
+                    <li class="list-group-item">{{ item['title'] }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </li>
+        {% endfor %} {% endif %}
     </ul>
+    {% endif %}
 </div>
 <div class="col-7">
-    {% if breadcrumbs[-1:][0]['text'] == 'settings' %}
-    {% include "admin/dashboard/sections/forms/config.html" %}
-    {% elif breadcrumbs[-1:][0]['text'] == 'employment history' %}
-    {% include "admin/dashboard/sections/forms/employment.html" %}
-    {% elif breadcrumbs[-1:][0]['text'] == 'courses & certifications' %}
-    {% include "admin/dashboard/sections/forms/course.html" %}
-    {% else %}
-    {% include "admin/dashboard/sections/forms/form.html" %}
-    {% endif %}
+    {% if breadcrumbs[-1:][0]['text'] == 'settings' %} {% include "admin/dashboard/sections/forms/config.html" %} {% elif breadcrumbs[-1:][0]['text'] == 'employment history' %} {% include "admin/dashboard/sections/forms/employment.html" %} {% elif breadcrumbs[-1:][0]['text']
+    == 'courses & certifications' %} {% include "admin/dashboard/sections/forms/course.html" %} {% else %} {% include "admin/dashboard/sections/forms/form.html" %} {% endif %}
 </div>

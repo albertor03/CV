@@ -60,12 +60,12 @@ def login():
 
         flash("Your credentials are invalid, check and try again.", "danger")
         fixed = True
-        return render_template("/admin/admin_login.html", info=info, fix=fixed, date=date)
+        return render_template("/admin/admin_login.html", info=info[0], fix=fixed, date=date)
 
     if "username" in session:
         return redirect(url_for('dashboard_section'))
     fixed = True
-    return render_template("/admin/admin_login.html", info=info, fix=fixed, date=date)
+    return render_template("/admin/admin_login.html", info=info[0], fix=fixed, date=date)
 
 
 @app.route("/logout")
@@ -86,7 +86,7 @@ def dashboard():
 @app.route("/dashboard/sections/")
 @register_breadcrumb(app, '.Dashboard', 'Sections')
 def dashboard_section():
-    info = d.get_data('sections')
+    info = d.get_data('info')
 
     if "username" in session:
         value = d.get_sections()

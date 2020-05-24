@@ -3,8 +3,7 @@
     <div class="row">
         {% include "admin/dashboard/breadcrumb.html" %}
     </div>
-    {% endif %}
-    {% if breadcrumbs[-1:][0]['text'] == 'professional summary' %}
+    {% endif %} {% if breadcrumbs[-1:][0]['text'] == 'professional summary' %}
     <div class="row">
         {% include "admin/dashboard/sections/summary.html" %}
     </div>
@@ -14,8 +13,7 @@
     </div>
     {% elif value|length > 0 or breadcrumbs[-1:][0]['text'] == 'settings' %}
     <div class="row my-4">
-        {% include "admin/dashboard/message.html" %}
-        {% include "admin/dashboard/sections/info.html" %}
+        {% include "admin/dashboard/message.html" %} {% include "admin/dashboard/sections/info.html" %}
     </div>
     {% endif %}
 </div>
