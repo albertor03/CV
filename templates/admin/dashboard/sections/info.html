@@ -17,33 +17,40 @@
         {% endfor %}
     </div>
     {% endif %} {% else %}
-    <ul class="list-group" id="accordionCourse">
-        {% if breadcrumbs[-1:][0]['text'] == 'settings' %}
-        <li id="editPass" role="button" class="list-group-item list-group-item-action text-capitalize text-dark"> change password <i class="fas fa-angle-right text-secondary" style="float: right;"></i> </li>
-        {% elif breadcrumbs[-1:][0]['text'] == 'courses & certifications' %}
-        <li class="list-group-item">
-            <div id="actionButton" class="float-right">
-                <i id="addItem" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
-                <i role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+    <div class="accordion" id="accordionCourse">
+        <div class="card">
+            <div class="card-header" style="background-color: #fff;">
+                <div id="actionButton" class="float-right">
+                    <i id="addItem" role="button" class="fas fa-plus" data-toggle="tooltip" data-placement="top" title="Add new"></i>
+                    <i id="deleteItem" role="button" class="fas fa-minus" data-toggle="tooltip" data-placement="top" title="Delete"></i>
+                </div>
             </div>
-        </li>
+        </div>
         {% for items in value %}
-        <li class="list-group-item text-capitalize" data-toggle="collapse" href="#{{ items['section'] }}Section" role="button">
-            <div id="{{ items['section'] }}H">
-                <span>
+        <div class="card">
+            <div class="card-header" id="heading{{ items['section'] }}">
+                <div class="row">
+                    <span class="text-capitalize btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{ items['section'] }}" aria-expanded="true" aria-controls="collapse{{ items['section'] }}" style="text-decoration: none;">
                         {{ items['section'] }} <span class="badge badge-dark float-right">{{ items['courses']|length }}</span>
-                </span>
+                    </span>
+                </div>
             </div>
-            <div id="{{ items['section'] }}Section" class="collapse container-fluid border-top {{ 'border-bottom' if loop.last }} mt-3" aria-labelledby="{{ items['section'] }}H" data-parent="#accordionCourse">
-                <ul class="list-group list-group-flush">
+
+            <div id="collapse{{ items['section'] }}" class="collapse" aria-labelledby="heading{{ items['section'] }}" data-parent="#accordionCourse">
+                <div id="itemDiv" class="item-div rounded-lg activate">
                     {% for item in items['courses'] %}
-                    <li class="list-group-item">{{ item['title'] }}</li>
+                    <div class="item-list">
+                        <div id="trashDiv" class="trash-btn" role="button">
+                            <a href="#{{ item['id'] }}" class="fas fa-trash"></a>
+                        </div>
+                        <div class="item-text text-capitalize" role="button">{{ item['title'] }}</div>
+                    </div>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
-        </li>
-        {% endfor %} {% endif %}
-    </ul>
+        </div>
+        {% endfor %}
+    </div>
     {% endif %}
 </div>
 <div class="col-7">
